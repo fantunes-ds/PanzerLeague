@@ -13,8 +13,12 @@ public class TankController : MonoBehaviour
     [SerializeField]
     private float m_tankSpeed = 3;
     [SerializeField]
-    private float m_rotSpeed = 30;
-    
+    private float m_tankRotSpeed = 30;
+    [SerializeField]
+    private float m_maxSpeed = 10.0f;
+    [SerializeField]
+    private float m_canonRotSpeed = 30;
+
     private Rigidbody m_rb;
     private Rigidbody m_canonRb;
     // Start is called before the first frame update
@@ -27,16 +31,23 @@ public class TankController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(Input.GetAxis("Horizontal2"));
+        Quaternion tankRotation = transform.rotation * Quaternion.Euler(Vector3.up * Input.GetAxis("Horizontal") * m_tankRotSpeed * Time.deltaTime);
 
-        Vector3 newPos = transform.position + (transform.forward * Input.GetAxis("Vertical") * m_tankSpeed * Time.deltaTime);  
+        Vector3 canonRotationAxis = Vector3.up * Input.GetAxis("Horizontal2") + Vector3.right * Input.GetAxis("Vertical2");
         
-        Quaternion newRot = transform.rotation * Quaternion.Euler(Vector3.up * Input.GetAxis("Horizontal") * m_rotSpeed * Time.deltaTime); 
-        Quaternion canonRot = m_canon.transform.rotation * Quaternion.Euler(Vector3.up * Input.GetAxis("Horizontal2") * m_rotSpeed * Time.deltaTime); 
+        Quaternion canonRotation = Quaternion.Euler(canonRotationAxis) *  m_canon.transform.rotation; 
 
-        newRot.z = 0;
-        m_rb.MovePosition(newPos);
-        m_rb.MoveRotation(newRot);
-        m_canonRb.MoveRotation(canonRot);
+        if (canonRotation.eulerAngles.x > 10.0f && canonRotation.eulerAngles.x < 270.0f)
+            canonRotation = Quaternion.Euler(9.0f, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
+        else if (canonRotation.eulerAngles.x < 350.0f && canonRotation.eulerAngles.x > 270.0f )
+            canonRotation = Quaternion.Euler(350.0f, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
+
+        canonRotation.z = 0;
+        
+        if (Mathf.Abs(m_rb.velocity.x) + Mathf.Abs(m_rb.velocity.y) + Mathf.Abs(m_rb.velocity.z) < m_maxSpeed)
+        {m_rb.AddForce(transform.forward * Input.GetAxis("Trigger") * m_tankSpeed);}
+        
+        m_rb.MoveRotation(tankRotation);
+        m_canonRb.MoveRotation(canonRotation);
     }
 }

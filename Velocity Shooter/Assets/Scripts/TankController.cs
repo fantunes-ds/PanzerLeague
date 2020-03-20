@@ -8,7 +8,7 @@ public class TankController : MonoBehaviour
     [SerializeField]
     private GameObject m_canon;
     [SerializeField]
-    private Camera m_tankCamera;
+    private Transform m_tankCamera;
 
     [SerializeField]
     private float m_tankSpeed = 30;
@@ -38,16 +38,14 @@ public class TankController : MonoBehaviour
     void RotateCanon()
     {
         Vector3 canonRotationAxis = Vector3.right * Input.GetAxis("Vertical2") + Vector3.up * Input.GetAxis("Horizontal2");
-        Quaternion canonRotation = m_canon.transform.rotation * Quaternion.Euler(canonRotationAxis); 
+//        Quaternion canonRotation = m_canon.transform.rotation * Quaternion.Euler(canonRotationAxis); 
 
+        Quaternion canonRotation = m_tankCamera.transform.rotation;
         //Clamp X rotation
         if (canonRotation.eulerAngles.x > 10.0f && canonRotation.eulerAngles.x < 270.0f)
             canonRotation = Quaternion.Euler(9.0f, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         else if (canonRotation.eulerAngles.x < 350.0f && canonRotation.eulerAngles.x > 270.0f )
             canonRotation = Quaternion.Euler(350.0f, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
-        
-        
-
         
         Quaternion q = canonRotation;
         q.eulerAngles = new Vector3(q.eulerAngles.x, q.eulerAngles.y, 0);
@@ -57,7 +55,7 @@ public class TankController : MonoBehaviour
     void ControlTank()
     {
         if (Mathf.Abs(m_rb.velocity.x) + Mathf.Abs(m_rb.velocity.y) + Mathf.Abs(m_rb.velocity.z) < m_maxSpeed)
-        {m_rb.AddForce(transform.forward * Input.GetAxis("Trigger") * m_tankSpeed);}
+        {m_rb.AddForce(transform.forward * Input.GetAxis("Throttle") * m_tankSpeed);}
     }
 
     void RotateTank()

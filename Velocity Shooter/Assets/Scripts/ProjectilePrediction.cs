@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(LineRenderer))]
 public class ProjectilePrediction : MonoBehaviour
@@ -36,7 +37,7 @@ public class ProjectilePrediction : MonoBehaviour
     void Update()
     {
         DrawTrajectory();
-        if (Input.GetKeyDown(KeyCode.JoystickButton2))
+        if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetMouseButtonDown(0))
         {
             m_bullet.transform.position = m_bulletOrigin.position;
             m_bulletVelocity = m_bulletOrigin.forward * m_speed;

@@ -7,8 +7,10 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(LineRenderer))]
 public class ProjectilePrediction : MonoBehaviour
 {
-    [SerializeField][Tooltip("The speed of the overall shot")]
-    private float m_speed = 30.0f;
+    private Rigidbody m_tankRigidbodyRef;
+    [SerializeField][Tooltip("The minimum speed of the overall shot")]
+    private float m_initialSpeed = 5.0f;
+    private float m_speed;
     [SerializeField][Range(2,60)][Tooltip("This setting makes the curve be smoother or sharper. It's the number of 'vertices'")]
     private float m_curveAccuracy = 20;
     [SerializeField][Range(1,10)][Tooltip("This setting makes the prediction go further or closer. WARNING : THIS MAY BE INTENSIVE")]
@@ -28,14 +30,18 @@ public class ProjectilePrediction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_tankRigidbodyRef = GetComponent<Rigidbody>();
         m_lr = GetComponent<LineRenderer>();
         m_bulletVelocity = m_bulletOrigin.forward * m_speed;
-        m_bullet = Instantiate(m_bulletPrefab, m_bulletOrigin.position, Quaternion.identity);
+        m_bullet = Instantiate(m_bulletPrefab, new Vector3(-100, -100, -100), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Rigidbody rb = m_tankRigidbodyRef;
+        m_speed = Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.y) + Mathf.Abs(rb.velocity.z) * 2 + m_initialSpeed;
+        
         DrawTrajectory();
         if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetMouseButtonDown(0))
         {
@@ -71,7 +77,7 @@ public class ProjectilePrediction : MonoBehaviour
         Vector3 predictedBulletVelocity = m_bulletOrigin.forward * m_speed;
         points.Add(point1);
 
-        for (float i = 0; i < m_maxCurveDistance; i += stepSize)
+        for (float i = 0; i < m_maxCurveDistance * 4; i += stepSize)
         {
             predictedBulletVelocity += Physics.gravity * stepSize;
             Vector3 point2 = point1 +  predictedBulletVelocity * stepSize;
@@ -91,7 +97,7 @@ public class ProjectilePrediction : MonoBehaviour
         Vector3 point1 = m_bulletOrigin.position;
         Vector3 predictedBulletVelocity = m_bulletOrigin.forward * m_speed;
         
-        for (float i = 0; i < m_maxCurveDistance; i += stepSize)
+        for (float i = 0; i < m_maxCurveDistance * 4.0f; i += stepSize)
         {
             predictedBulletVelocity += Physics.gravity * stepSize;
             Vector3 point2 = point1 +  predictedBulletVelocity * stepSize;

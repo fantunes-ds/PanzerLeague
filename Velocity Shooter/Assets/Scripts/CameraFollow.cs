@@ -8,7 +8,9 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private float m_moveSpeed = 120.0f;
     [SerializeField]
-    private GameObject m_CameraFollowObject;
+    private GameObject m_cameraTarget;
+    [SerializeField]
+    private GameObject m_zoomTarget;
 
     private Vector3 m_followPos;
 
@@ -59,7 +61,7 @@ public class CameraFollow : MonoBehaviour
         m_rot.x = Mathf.Clamp(m_rot.x, -m_clampAngle, m_clampAngle);
 
         Quaternion localRotation = Quaternion.Euler(m_rot.x, m_rot.y, 0.0f);
-        transform.rotation = localRotation;
+        transform.rotation = Quaternion.Slerp(transform.rotation, localRotation, Time.deltaTime * m_moveSpeed);
     }
 
     private void LateUpdate()
@@ -69,7 +71,7 @@ public class CameraFollow : MonoBehaviour
 
     void UpdateCamera()
     {
-        Transform target = m_CameraFollowObject.transform;
+        Transform target = m_cameraTarget.transform;
 
         float step = m_moveSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);

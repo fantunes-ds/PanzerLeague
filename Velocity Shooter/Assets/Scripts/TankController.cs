@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
-
+[RequireComponent(typeof(Rigidbody))]
 public class TankController : MonoBehaviour
 {
     [SerializeField]
@@ -11,13 +11,13 @@ public class TankController : MonoBehaviour
     private Camera m_tankCamera;
 
     [SerializeField]
-    private float m_tankSpeed = 3;
+    private float m_tankSpeed = 30;
     [SerializeField]
-    private float m_tankRotSpeed = 30;
+    private float m_tankRotSpeed = 60;
     [SerializeField]
     private float m_maxSpeed = 10.0f;
     [SerializeField]
-    private float m_canonRotSpeed = 30;
+    private float m_canonRotSpeed = 60;
 
     private Rigidbody m_rb;
     private GameObject m_canonRb;

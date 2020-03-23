@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.Serialization;
@@ -7,24 +8,34 @@ using UnityEngine.Serialization;
 public class TankController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject m_canon;
-    [SerializeField]
     private Transform m_tankCamera;
 
-    [SerializeField]
-    private Transform[] m_wheels;
 
+    [Header("Tank")]
     [SerializeField]
     private float m_tankSpeed = 30;
     [SerializeField]
     private float m_tankRotSpeed = 60;
     [SerializeField]
     private float m_maxSpeed = 10.0f;
+
+    [Header("Canon")]
+    [SerializeField]
+    private GameObject m_canon;
     [SerializeField]
     private float m_canonRotSpeed = 60;
     [SerializeField]
     private float m_maxCanonRotAngle = 10.0f;
 
+    [Header("Wheels Animations")]
+    [SerializeField][Tooltip("Drag and drop all four wheels. Front are 0 and 1, back are 2 and 3")]
+    private Transform[] m_wheels;
+    [SerializeField][Tooltip("It's only visual, for the wheel animation")]
+    private float m_maxWheelTurnAngle = 25.0f;
+    [SerializeField]
+    private float m_wheelAnimationSpeed = 1.0f;
+    
+    
     private Rigidbody m_rb;
     private GameObject m_canonRb;
     // Start is called before the first frame update
@@ -55,7 +66,7 @@ public class TankController : MonoBehaviour
             canonRotation = Quaternion.Euler(360.0f - m_maxCanonRotAngle, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         
         Quaternion q = canonRotation;
-        q.eulerAngles = Vector3.Slerp(q.eulerAngles, new Vector3(q.eulerAngles.x, q.eulerAngles.y, 0), Time.deltaTime * m_canonRotSpeed);
+//        q.eulerAngles = Vector3.Slerp(q.eulerAngles, new Vector3(q.eulerAngles.x, q.eulerAngles.y, 0), Time.deltaTime * m_canonRotSpeed);
         m_canon.transform.rotation = q;
     }
 
@@ -73,11 +84,33 @@ public class TankController : MonoBehaviour
 
     private void AnimateWheels()
     {
-        float speed = GetSpeed();
-        for (int i = 0; i < m_wheels.Length; i++)
-        {
-            m_wheels[i].Rotate(new Vector3(-speed, 0, 0));
-        }
+        if (m_wheels.Length < 4)
+            return;
+        
+        Quaternion q = m_wheels[2].localRotation;
+        float rotAngle = q.eulerAngles.x - GetSpeed();
+            
+            if (rotAngle > 180 && rotAngle < 270)
+                rotAngle = 0;
+            else if (rotAngle < 180 && rotAngle > 90)
+                rotAngle = 0;
+        
+        q.eulerAngles = new Vector3(rotAngle, m_wheels[2].rotation.eulerAngles.y + Input.GetAxis("Horizontal") * m_maxWheelTurnAngle, 0.1f);
+        m_wheels[0].rotation = q;
+
+        q = m_wheels[1].localRotation;
+        q.eulerAngles = new Vector3(rotAngle,m_wheels[2].rotation.eulerAngles.y + (Input.GetAxis("Horizontal") * m_maxWheelTurnAngle), 0.1f);
+        m_wheels[1].rotation = q;
+        
+        
+        q = m_wheels[2].localRotation;
+        q.eulerAngles = new Vector3(rotAngle, 0.1f, 0.1f);
+        m_wheels[2].localRotation = q;
+        
+        q = m_wheels[3].localRotation;
+        q.eulerAngles = new Vector3(rotAngle, 0.1f, 0.1f);
+        m_wheels[3].localRotation = q;
+
     }
 
     float GetSpeed()

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -785,14 +785,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b6026cbe0d4804ba5fafe34f44c1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_canon: {fileID: 7699374234538920529}
   m_tankCamera: {fileID: 0}
-  m_wheels: []
   m_tankSpeed: 30
   m_tankRotSpeed: 60
   m_maxSpeed: 10
+  m_canon: {fileID: 7699374234538920529}
   m_canonRotSpeed: 30
   m_maxCanonRotAngle: 20
+  m_wheels: []
+  m_maxWheelTurnAngle: 10
+  m_wheelAnimationSpeed: 10
 --- !u!4 &1259716072
 Transform:
   m_ObjectHideFlags: 0
@@ -1030,6 +1032,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4344272170710842784, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344272170710842784, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344272170710842784, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344272170710842784, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344272170710842784, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7282988074097901733, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1070,6 +1097,31 @@ PrefabInstance:
       propertyPath: m_wheels.Array.data[3]
       value: 
       objectReference: {fileID: 773665851}
+    - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_tankSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_tankRotSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_maxWheelTurnAngle
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_wheelAnimationSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7282988075335883249, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_LocalPosition.x

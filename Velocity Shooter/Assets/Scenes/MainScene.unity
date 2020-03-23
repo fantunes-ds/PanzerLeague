@@ -1067,6 +1067,16 @@ PrefabInstance:
       propertyPath: m_maxCurveDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883246, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883246, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_wheels.Array.size
@@ -1105,7 +1115,7 @@ PrefabInstance:
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_tankRotSpeed
-      value: 60
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
@@ -1115,7 +1125,7 @@ PrefabInstance:
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_maxWheelTurnAngle
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}

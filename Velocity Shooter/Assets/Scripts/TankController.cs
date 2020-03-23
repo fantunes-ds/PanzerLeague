@@ -78,7 +78,7 @@ public class TankController : MonoBehaviour
 
     void RotateTank()
     {
-        Quaternion tankRotation = transform.rotation * Quaternion.Euler(Vector3.up * Input.GetAxis("Horizontal") * m_tankRotSpeed * Time.deltaTime);
+        Quaternion tankRotation = transform.rotation * Quaternion.Euler(Vector3.up * Input.GetAxis("Horizontal") * Input.GetAxis("Throttle") * GetSpeed() * m_tankRotSpeed * Time.deltaTime);
         m_rb.MoveRotation(tankRotation);
     }
 

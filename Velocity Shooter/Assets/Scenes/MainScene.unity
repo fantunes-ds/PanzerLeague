@@ -1077,6 +1077,11 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883246, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_wheels.Array.size
@@ -1110,12 +1115,12 @@ PrefabInstance:
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_tankSpeed
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_tankRotSpeed
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}

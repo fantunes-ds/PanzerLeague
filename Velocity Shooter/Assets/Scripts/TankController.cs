@@ -20,7 +20,9 @@ public class TankController : MonoBehaviour
     private float m_maxSpeed = 10.0f;
 
     [Header("Canon")]
-    [SerializeField]
+    [SerializeField][Tooltip("The complete turret that rotates 360 degrees")]
+    private GameObject m_turret;
+    [SerializeField][Tooltip("The canon is the tube that moves vertically where the bullet comes out")]
     private GameObject m_canon;
     [SerializeField]
     private float m_canonRotSpeed = 60;
@@ -56,18 +58,18 @@ public class TankController : MonoBehaviour
     void RotateCanon()
     {
         Vector3 canonRotationAxis = Vector3.right * Input.GetAxis("Vertical2") + Vector3.up * Input.GetAxis("Horizontal2");
-//        Quaternion canonRotation = m_canon.transform.rotation * Quaternion.Euler(canonRotationAxis); 
 
-        Quaternion canonRotation = m_tankCamera.transform.rotation;
+        Quaternion turretRotation = m_turret.transform.rotation;
+        m_turret.transform.rotation = Quaternion.Euler(turretRotation.eulerAngles.x, m_tankCamera.transform.rotation.eulerAngles.y, turretRotation.eulerAngles.z);
+
+        Quaternion canonRotation = m_canon.transform.rotation;
+        canonRotation = Quaternion.Euler(-m_tankCamera.rotation.eulerAngles.x, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         //Clamp X rotation
         if (canonRotation.eulerAngles.x > m_maxCanonRotAngle && canonRotation.eulerAngles.x < 270.0f)
             canonRotation = Quaternion.Euler(m_maxCanonRotAngle, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         else if (canonRotation.eulerAngles.x < 360.0f - m_maxCanonRotAngle && canonRotation.eulerAngles.x > 270.0f )
             canonRotation = Quaternion.Euler(360.0f - m_maxCanonRotAngle, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
-        
-        Quaternion q = canonRotation;
-//        q.eulerAngles = Vector3.Slerp(q.eulerAngles, new Vector3(q.eulerAngles.x, q.eulerAngles.y, 0), Time.deltaTime * m_canonRotSpeed);
-        m_canon.transform.rotation = q;
+        m_canon.transform.rotation = canonRotation;
     }
 
     void ControlTank()

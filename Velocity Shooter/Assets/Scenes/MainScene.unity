@@ -721,6 +721,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8331506304357812857}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &917065903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2826689588585246850, guid: 5922effc2608c804e8d951f0dc15f105,
+    type: 3}
+  m_PrefabInstance: {fileID: 7282988075448822334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &985071203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4738790544645043843, guid: a5f62bd6b7fdd1f4eb3cc30e71739b67,
@@ -789,7 +795,8 @@ MonoBehaviour:
   m_tankSpeed: 30
   m_tankRotSpeed: 60
   m_maxSpeed: 10
-  m_canon: {fileID: 7699374234538920529}
+  m_turret: {fileID: 0}
+  m_canon: {fileID: 0}
   m_canonRotSpeed: 30
   m_maxCanonRotAngle: 20
   m_wheels: []
@@ -821,6 +828,12 @@ Transform:
 --- !u!1 &1351314074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7282988074097901732, guid: 5922effc2608c804e8d951f0dc15f105,
+    type: 3}
+  m_PrefabInstance: {fileID: 7282988075448822334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1383378708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7282988074986745089, guid: 5922effc2608c804e8d951f0dc15f105,
     type: 3}
   m_PrefabInstance: {fileID: 7282988075448822334}
   m_PrefabAsset: {fileID: 0}
@@ -1137,6 +1150,16 @@ PrefabInstance:
       propertyPath: m_wheelAnimationSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_turret
+      value: 
+      objectReference: {fileID: 1383378708}
+    - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_canon
+      value: 
+      objectReference: {fileID: 917065903}
     - target: {fileID: 7282988075335883249, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_LocalPosition.x

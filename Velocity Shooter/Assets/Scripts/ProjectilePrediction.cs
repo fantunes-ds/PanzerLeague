@@ -26,6 +26,9 @@ public class ProjectilePrediction : MonoBehaviour
     private Transform m_bulletOrigin;
     
     private LineRenderer m_lr;
+
+    [SerializeField]
+    private GameObject m_targetIndicator;
     
     // Start is called before the first frame update
     void Start()
@@ -43,7 +46,8 @@ public class ProjectilePrediction : MonoBehaviour
         m_speed = Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.y) + Mathf.Abs(rb.velocity.z) * 2 + m_initialSpeed;
         
         DrawTrajectory();
-        if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetMouseButtonDown(0))
+        
+        if (Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetMouseButtonDown(0))
         {
             m_bullet.transform.position = m_bulletOrigin.position;
             m_bulletVelocity = m_bulletOrigin.forward * m_speed;
@@ -82,6 +86,12 @@ public class ProjectilePrediction : MonoBehaviour
             predictedBulletVelocity += Physics.gravity * stepSize;
             Vector3 point2 = point1 +  predictedBulletVelocity * stepSize;
             points.Add(point2);
+            RaycastHit hit;
+            if (Physics.Raycast(point1, (point2 - point1), out hit, (point2 - point1).magnitude, ~8))
+            {
+                m_targetIndicator.transform.position = hit.point;
+                break;
+            }
             point1 = point2;
         }
         

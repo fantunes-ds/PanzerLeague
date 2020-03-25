@@ -19,22 +19,17 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private float m_inputSensitivity = 150.0f;
     [SerializeField] 
-    private GameObject m_cameraObject;    
-    [SerializeField] 
-    private GameObject m_playerObject;    
-    [SerializeField] 
-    private Vector3 m_cameraDistanceToPlayer;
+    private CameraSpringArm m_cameraObject;
     [SerializeField] 
     private Vector2 m_input;
     [SerializeField] 
     private Vector2 m_finalInput;    
     [SerializeField] 
-    private Vector2 m_smooth;
-    [SerializeField] 
     private Vector2 m_rot;
 
-    
-    
+    private bool m_isZooming;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,10 +64,25 @@ public class CameraFollow : MonoBehaviour
         UpdateCamera();
     }
 
+    public void SetIsZooming(bool p_isZooming)
+    {
+        m_isZooming = p_isZooming;
+    }
+
     void UpdateCamera()
     {
         Transform target = m_cameraTarget.transform;
+        if (m_isZooming)
+        {
+            target = m_zoomTarget.transform;
+            m_cameraObject.SetZoom();
+        }
+        else
+        {
+            m_cameraObject.RestoreView();
+        }
 
+            
         float step = m_moveSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }

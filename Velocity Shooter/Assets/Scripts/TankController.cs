@@ -8,7 +8,10 @@ using UnityEngine.Serialization;
 public class TankController : MonoBehaviour
 {
     [SerializeField]
-    private Transform m_tankCamera;
+    private GameObject m_tankCamera;
+    
+    private Transform m_tankCameraTransform;
+    private CameraFollow m_tankCameraFollow;
 
 
     [Header("Tank")]
@@ -36,7 +39,8 @@ public class TankController : MonoBehaviour
     private float m_maxWheelTurnAngle = 25.0f;
     [SerializeField]
     private float m_wheelAnimationSpeed = 1.0f;
-    
+
+    private bool m_isZooming;
     
     private Rigidbody m_rb;
     private GameObject m_canonRb;
@@ -44,6 +48,8 @@ public class TankController : MonoBehaviour
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
+        m_tankCameraTransform = m_tankCamera.GetComponentInChildren<Transform>();
+        m_tankCameraFollow = m_tankCamera.GetComponent<CameraFollow>();
     }
 
     // Update is called once per frame
@@ -53,6 +59,7 @@ public class TankController : MonoBehaviour
         RotateTank();
         RotateTurret();
         AnimateWheels();
+        SetZoom();
     }
 
     void RotateTurret()
@@ -67,13 +74,25 @@ public class TankController : MonoBehaviour
         m_turret.transform.localRotation = Quaternion.Euler(0.0f, m_turret.transform.localRotation.eulerAngles.y, 0.0f);
 
         Quaternion canonRotation = m_canon.transform.localRotation;
-        canonRotation = Quaternion.Euler(-m_tankCamera.rotation.eulerAngles.x, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
+        canonRotation = Quaternion.Euler(-m_tankCameraTransform.rotation.eulerAngles.x, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         //Clamp X rotation
         if (canonRotation.eulerAngles.x > m_maxCanonRotAngle && canonRotation.eulerAngles.x < 270.0f)
             canonRotation = Quaternion.Euler(m_maxCanonRotAngle, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         else if (canonRotation.eulerAngles.x < 360.0f - m_maxCanonRotAngle && canonRotation.eulerAngles.x > 270.0f )
             canonRotation = Quaternion.Euler(360.0f - m_maxCanonRotAngle, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         m_canon.transform.localRotation = canonRotation;
+    }
+
+    void SetZoom()
+    {
+
+        if (Input.GetKey(KeyCode.JoystickButton4))
+            m_isZooming = true;
+        else
+            m_isZooming = false;
+        
+        m_tankCameraFollow.SetIsZooming(m_isZooming);
+        transform.GetComponent<LineRenderer>().enabled = m_isZooming;
     }
 
     void ControlTank()

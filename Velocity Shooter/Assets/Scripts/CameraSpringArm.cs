@@ -9,6 +9,8 @@ public class CameraSpringArm : MonoBehaviour
     private float m_minDistance = 1.0f;
     [SerializeField][Range(1f, 6f)]
     private float m_maxDistance = 4.0f;
+
+    private float m_oldMaxDistance;
     [SerializeField][Range(1f, 20f)]
     private float m_transitionSpeed = 10.0f;
     private Vector3 m_direction;
@@ -21,6 +23,7 @@ public class CameraSpringArm : MonoBehaviour
     {
         m_direction = transform.localPosition.normalized;
         m_distance = transform.localPosition.magnitude;
+        m_oldMaxDistance = m_maxDistance;
     }
 
     // Update is called once per frame
@@ -37,5 +40,15 @@ public class CameraSpringArm : MonoBehaviour
 
         transform.localPosition =
             Vector3.Lerp(transform.localPosition, m_direction * m_distance, Time.deltaTime * m_transitionSpeed);
+    }
+
+    public void SetZoom()
+    {
+        m_maxDistance = 1;
+    }
+    
+    public void RestoreView()
+    {
+        m_maxDistance = m_oldMaxDistance;
     }
 }

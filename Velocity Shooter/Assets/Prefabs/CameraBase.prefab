@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4738790544645043843}
   m_LocalRotation: {x: -0.13288039, y: -0, z: -0, w: -0.9911321}
-  m_LocalPosition: {x: 0.52, y: 1.312, z: -3.437}
+  m_LocalPosition: {x: 0, y: 1.312, z: -3.437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8331506303563285683}
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8331506303563285680}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -0.299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -178,13 +178,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 120
-  m_CameraFollowObject: {fileID: 0}
-  m_clampAngle: 80
+  m_cameraTarget: {fileID: 0}
+  m_zoomTarget: {fileID: 0}
+  m_clampAngle: 35
   m_inputSensitivity: 150
-  m_cameraObject: {fileID: 0}
-  m_playerObject: {fileID: 0}
-  m_cameraDistanceToPlayer: {x: 0, y: 0, z: 0}
+  m_cameraObject: {fileID: 4738790544645043842}
   m_input: {x: 0, y: 0}
   m_finalInput: {x: 0, y: 0}
-  m_smooth: {x: 0, y: 0}
   m_rot: {x: 0, y: 0}

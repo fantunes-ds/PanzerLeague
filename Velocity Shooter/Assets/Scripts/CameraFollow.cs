@@ -7,10 +7,9 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
     private float m_moveSpeed = 120.0f;
+    public Transform m_cameraTarget;
     [SerializeField]
-    private GameObject m_cameraTarget;
-    [SerializeField]
-    private GameObject m_zoomTarget;
+    public Transform m_zoomTarget;
 
     private Vector3 m_followPos;
 

@@ -7,8 +7,8 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Rigidbody))]
 public class TankController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_tankCamera;
+    [HideInInspector]
+    public GameObject m_tankCamera;
     
     private Transform m_tankCameraTransform;
     private CameraFollow m_tankCameraFollow;
@@ -44,6 +44,10 @@ public class TankController : MonoBehaviour
     
     private Rigidbody m_rb;
     private GameObject m_canonRb;
+
+    public Transform m_cameraTarget;
+    public Transform m_zoomTarget;
+
     // Start is called before the first frame update
     void Start()
     {

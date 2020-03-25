@@ -1,5 +1,128 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &40949636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40949637}
+  m_Layer: 8
+  m_Name: ZoomTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &40949637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40949636}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.0057550427, y: 0.20205379, z: -1.3711607}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7940955369482893921}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &634706446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634706450}
+  - component: {fileID: 634706449}
+  - component: {fileID: 634706448}
+  - component: {fileID: 634706447}
+  m_Layer: 0
+  m_Name: target indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &634706450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634706446}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.14, y: 1.01, z: -0.039875995}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 7282988075335883249}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &634706449
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634706446}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &634706448
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634706446}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: cee966326a05a1841b8066371ba4ae45, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!135 &634706447
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634706446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &241325089110273767
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +134,7 @@ GameObject:
   - component: {fileID: 2503880743038454007}
   - component: {fileID: 3527599140846842031}
   - component: {fileID: 6321960925704835022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roue_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +214,7 @@ GameObject:
   - component: {fileID: 2727087393648050307}
   - component: {fileID: 186914080946851688}
   - component: {fileID: 316386747082295210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface43
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +293,7 @@ GameObject:
   - component: {fileID: 2178714833037530970}
   - component: {fileID: 2165166297316320469}
   - component: {fileID: 1655507448293971940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube35
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +372,7 @@ GameObject:
   - component: {fileID: 3126729616747760704}
   - component: {fileID: 6333474370851858664}
   - component: {fileID: 7525758027816192614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder35
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +451,7 @@ GameObject:
   - component: {fileID: 4490032451218050919}
   - component: {fileID: 4165253736292256991}
   - component: {fileID: 1280925456760994037}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +530,7 @@ GameObject:
   - component: {fileID: 8736941106792876994}
   - component: {fileID: 1083998714752132756}
   - component: {fileID: 4277005356447053166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2335375753032100062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tank_antoine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +649,7 @@ GameObject:
   - component: {fileID: 3167672110309487129}
   - component: {fileID: 8738180714570412239}
   - component: {fileID: 5142830468615017629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +728,7 @@ GameObject:
   - component: {fileID: 6309164351898391778}
   - component: {fileID: 4743360138523768736}
   - component: {fileID: 3590478811961739514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: corps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +807,7 @@ GameObject:
   - component: {fileID: 2841681946398804979}
   - component: {fileID: 4488725850784212650}
   - component: {fileID: 680016730598938505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +886,7 @@ GameObject:
   - component: {fileID: 4483258534406115054}
   - component: {fileID: 3654181249631066681}
   - component: {fileID: 8327616367595066957}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roue_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +966,7 @@ GameObject:
   - component: {fileID: 7940955369482893921}
   - component: {fileID: 4981163692719031718}
   - component: {fileID: 8867012694372453379}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,6 +985,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7282988075536447843}
+  - {fileID: 40949637}
   m_Father: {fileID: 7282988074986745214}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -923,7 +1047,7 @@ GameObject:
   - component: {fileID: 1091148240401825057}
   - component: {fileID: 8857421527492960288}
   - component: {fileID: 9058503817384383333}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1002,7 +1126,7 @@ GameObject:
   - component: {fileID: 2033831372837287668}
   - component: {fileID: 7425830460642409930}
   - component: {fileID: 2111311629201823754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roue_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6351446857158697668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: details
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1116,7 +1240,7 @@ GameObject:
   - component: {fileID: 4344272170710842784}
   - component: {fileID: 3631708929820480427}
   - component: {fileID: 275053313075587412}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roue_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1254,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3796464192734745754}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.48718792, y: 0.35197127, z: -0.15780598}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1196,7 +1320,7 @@ GameObject:
   - component: {fileID: 6494523084504371630}
   - component: {fileID: 8165310085820486608}
   - component: {fileID: 8956394853663303183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface40
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1275,7 +1399,7 @@ GameObject:
   - component: {fileID: 1878186528524266913}
   - component: {fileID: 7159342452755292453}
   - component: {fileID: 6726557285932786248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1354,7 +1478,7 @@ GameObject:
   - component: {fileID: 6551281319063254371}
   - component: {fileID: 3809148657203229505}
   - component: {fileID: 5006739266720387523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder40
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1433,7 +1557,7 @@ GameObject:
   - component: {fileID: 3746581092585912576}
   - component: {fileID: 415320083834537209}
   - component: {fileID: 4613550487335985613}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1512,7 +1636,7 @@ GameObject:
   - component: {fileID: 200244709858750824}
   - component: {fileID: 5352969165402188849}
   - component: {fileID: 583859559283502229}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface37
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,7 +1715,7 @@ GameObject:
   - component: {fileID: 4018642954506427085}
   - component: {fileID: 4970869117073238102}
   - component: {fileID: 3704371892873723363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,7 +1794,7 @@ GameObject:
   - component: {fileID: 5354948964725171178}
   - component: {fileID: 7624758257178600009}
   - component: {fileID: 7853888858592157514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1749,7 +1873,7 @@ GameObject:
   - component: {fileID: 544062770180178299}
   - component: {fileID: 3640075977719680897}
   - component: {fileID: 3158967030012671675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plaque_pile1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1829,7 +1953,7 @@ GameObject:
   - component: {fileID: 8490297121139325877}
   - component: {fileID: 8548969469855654724}
   - component: {fileID: 4382416757771627586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1909,7 +2033,7 @@ GameObject:
   - component: {fileID: 8832656318821185326}
   - component: {fileID: 7106543384122145237}
   - component: {fileID: 5457324510834598013}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1988,7 +2112,7 @@ GameObject:
   - component: {fileID: 186604713803973159}
   - component: {fileID: 3713111166825721607}
   - component: {fileID: 4170329513250039618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube36
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2065,7 +2189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7282988074097901733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2080,7 +2204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7282988074097901732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.352, y: 1.197, z: 0}
+  m_LocalPosition: {x: 0.22, y: 1.197, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7282988075335883249}
@@ -2095,7 +2219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7282988074986745214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2148,7 +2272,7 @@ GameObject:
   - component: {fileID: 7282988075335883247}
   - component: {fileID: 7282988075335883245}
   - component: {fileID: 7282988075335883244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tank Antoine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2168,6 +2292,7 @@ Transform:
   m_Children:
   - {fileID: 2335375753032100062}
   - {fileID: 7282988074097901733}
+  - {fileID: 634706450}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2179,9 +2304,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7282988075335883251}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 2
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2199,12 +2324,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b6026cbe0d4804ba5fafe34f44c1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_canon: {fileID: 7282988074986745089}
   m_tankCamera: {fileID: 0}
   m_tankSpeed: 30
-  m_tankRotSpeed: 90
-  m_maxSpeed: 10
+  m_tankRotSpeed: 12
+  m_maxSpeed: 15
+  m_turret: {fileID: 7282988074986745089}
+  m_canon: {fileID: 2826689588585246850}
   m_canonRotSpeed: 30
+  m_maxCanonRotAngle: 30
+  m_wheels:
+  - {fileID: 4344272170710842784}
+  - {fileID: 2033831372837287668}
+  - {fileID: 2503880743038454007}
+  - {fileID: 4483258534406115054}
+  m_maxWheelTurnAngle: 15
+  m_wheelAnimationSpeed: 1
+  m_cameraTarget: {fileID: 7282988074097901733}
+  m_zoomTarget: {fileID: 40949637}
 --- !u!65 &7282988075335883247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2225,7 +2361,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7282988075335883251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2266,7 +2402,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.086538315
+        value: 0.009618759
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2325,13 +2461,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a48ea7449f5264e921734b97def104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 30
+  m_initialSpeed: 15
   m_curveAccuracy: 20
   m_maxCurveDistance: 1
   m_initialBulletVelocity: {x: 0, y: 0, z: 0}
   m_bulletPrefab: {fileID: 6749952201244515161, guid: e3869c522f5b65f45af1dabbfe8ef87e,
     type: 3}
   m_bulletOrigin: {fileID: 7282988075536447843}
+  m_targetIndicator: {fileID: 634706446}
 --- !u!1 &7282988075536447842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,7 +2478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7282988075536447843}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2373,7 +2510,7 @@ GameObject:
   - component: {fileID: 7791551682070663094}
   - component: {fileID: 3355153079767619487}
   - component: {fileID: 643019688636042917}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2452,7 +2589,7 @@ GameObject:
   - component: {fileID: 8189067213600599749}
   - component: {fileID: 4912717995726282442}
   - component: {fileID: 280856580895971204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface39
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2531,7 +2668,7 @@ GameObject:
   - component: {fileID: 5830156066370737008}
   - component: {fileID: 8769910816749413482}
   - component: {fileID: 5677735699177553714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2610,7 +2747,7 @@ GameObject:
   - component: {fileID: 4586913647864616265}
   - component: {fileID: 5302522830202911945}
   - component: {fileID: 7945356858096722294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube37
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2689,7 +2826,7 @@ GameObject:
   - component: {fileID: 9106480691480623710}
   - component: {fileID: 3286214099407243517}
   - component: {fileID: 6351954030448272501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface42
   m_TagString: Untagged
   m_Icon: {fileID: 0}

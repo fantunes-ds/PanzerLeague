@@ -29,6 +29,10 @@ public class ProjectilePrediction : MonoBehaviour
 
     [SerializeField]
     private GameObject m_targetIndicator;
+    [SerializeField]
+    private GameObject m_uiTarget;
+    [SerializeField]
+    private Camera m_tankCamera;
     
     // Start is called before the first frame update
     void Start()
@@ -90,6 +94,7 @@ public class ProjectilePrediction : MonoBehaviour
             if (Physics.Raycast(point1, (point2 - point1), out hit, (point2 - point1).magnitude, ~8))
             {
                 m_targetIndicator.transform.position = hit.point;
+                m_uiTarget.transform.position = m_tankCamera.WorldToScreenPoint(m_targetIndicator.transform.position);
                 break;
             }
             point1 = point2;

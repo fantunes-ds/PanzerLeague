@@ -14,7 +14,9 @@ public class CameraFollow : MonoBehaviour
     private Vector3 m_followPos;
 
     [SerializeField]
-    private float m_clampAngle = 80.0f;
+    private float m_clampAngleLow = 25.0f;
+    [SerializeField]
+    private float m_clampAngleHigh = 70.0f;
     [SerializeField]
     private float m_inputSensitivity = 150.0f;
     [SerializeField] 
@@ -52,7 +54,7 @@ public class CameraFollow : MonoBehaviour
         m_rot.y += m_finalInput.x * m_inputSensitivity * Time.deltaTime;
         m_rot.x += m_finalInput.y * m_inputSensitivity * Time.deltaTime;
 
-        m_rot.x = Mathf.Clamp(m_rot.x, -m_clampAngle, m_clampAngle);
+        m_rot.x = Mathf.Clamp(m_rot.x, -m_clampAngleLow, m_clampAngleHigh);
 
         Quaternion localRotation = Quaternion.Euler(m_rot.x, m_rot.y, 0.0f);
         transform.rotation = Quaternion.Slerp(transform.rotation, localRotation, Time.deltaTime * m_moveSpeed);

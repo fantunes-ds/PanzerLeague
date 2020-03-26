@@ -10,6 +10,9 @@ public class ProjectilePrediction : MonoBehaviour
     private Rigidbody m_tankRigidbodyRef;
     [SerializeField][Tooltip("The minimum speed of the overall shot")]
     private float m_initialSpeed = 5.0f;
+
+    [SerializeField][Tooltip("The recoil percentage caused by the shot")][Range(0f,500f)]
+    private float m_recoil;
     private float m_speed;
     [SerializeField][Range(2,60)][Tooltip("This setting makes the curve be smoother or sharper. It's the number of 'vertices'")]
     private float m_curveAccuracy = 20;
@@ -55,6 +58,7 @@ public class ProjectilePrediction : MonoBehaviour
         {
             m_bullet.transform.position = m_bulletOrigin.position;
             m_bulletVelocity = m_bulletOrigin.forward * m_speed;
+            m_tankRigidbodyRef.AddForce(m_bulletOrigin.transform.forward * -1 * m_recoil);
         }
         
         Vector3 point1 = m_bullet.transform.position;

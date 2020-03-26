@@ -15,8 +15,6 @@ public class CameraSpringArm : MonoBehaviour
     private float m_transitionSpeed = 10.0f;
     private Vector3 m_direction;
     [SerializeField]
-    private Vector3 m_directionAdjusted;
-    [SerializeField]
     private float m_distance;
     
     void Awake()

@@ -742,6 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialSpeed: 5
+  m_recoil: 0
   m_curveAccuracy: 20
   m_maxCurveDistance: 1
   m_initialBulletVelocity: {x: 0, y: 0, z: 20}
@@ -1525,6 +1526,11 @@ PrefabInstance:
       propertyPath: m_initialSpeed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7282988075335883244, guid: 5922effc2608c804e8d951f0dc15f105,
+        type: 3}
+      propertyPath: m_recoil
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 7282988075335883248, guid: 5922effc2608c804e8d951f0dc15f105,
         type: 3}
       propertyPath: m_tankCamera
@@ -1749,6 +1755,11 @@ PrefabInstance:
       propertyPath: m_zoomTarget
       value: 
       objectReference: {fileID: 40949637}
+    - target: {fileID: 8331506303563285682, guid: a5f62bd6b7fdd1f4eb3cc30e71739b67,
+        type: 3}
+      propertyPath: m_clampAngleLow
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8331506303563285683, guid: a5f62bd6b7fdd1f4eb3cc30e71739b67,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -131,7 +131,6 @@ MonoBehaviour:
   m_minDistance: 1
   m_maxDistance: 4
   m_transitionSpeed: 10
-  m_directionAdjusted: {x: 0, y: 0, z: 0}
   m_distance: 0
 --- !u!1 &8331506303563285680
 GameObject:
@@ -180,7 +179,8 @@ MonoBehaviour:
   m_moveSpeed: 120
   m_cameraTarget: {fileID: 0}
   m_zoomTarget: {fileID: 0}
-  m_clampAngle: 35
+  m_clampAngleLow: 15
+  m_clampAngleHigh: 70
   m_inputSensitivity: 150
   m_cameraObject: {fileID: 4738790544645043842}
   m_input: {x: 0, y: 0}

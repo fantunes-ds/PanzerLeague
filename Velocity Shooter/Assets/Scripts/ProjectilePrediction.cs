@@ -29,10 +29,9 @@ public class ProjectilePrediction : MonoBehaviour
 
     [SerializeField]
     private GameObject m_targetIndicator;
-    [SerializeField]
-    private GameObject m_uiTarget;
-    [SerializeField]
-    private Camera m_tankCamera;
+    public GameObject m_uiTarget;
+    
+    public Camera m_tankCamera;
 
     private bool m_isShooting;
     

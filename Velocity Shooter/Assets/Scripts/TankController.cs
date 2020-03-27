@@ -85,7 +85,7 @@ public class TankController : MonoBehaviour
         if (Input.GetKey(KeyCode.C))
             return;
             
-        Vector3 canonRotationAxis = Vector3.right * Input.GetAxis("Vertical2") + Vector3.up * Input.GetAxis("Horizontal2");
+        Vector3 canonRotationAxis = Vector3.right * Input.GetAxis(gameObject.name + "Vertical2") + Vector3.up * Input.GetAxis(gameObject.name +"Horizontal2");
 
         Quaternion turretRotation = m_turret.transform.parent.rotation;
         m_turret.transform.rotation = Quaternion.Euler(turretRotation.eulerAngles.x, m_tankCamera.transform.rotation.eulerAngles.y, turretRotation.eulerAngles.z);
@@ -106,7 +106,7 @@ public class TankController : MonoBehaviour
     void SetZoom()
     {
 
-        if (Input.GetKey(KeyCode.JoystickButton4) || Input.GetMouseButton(1))
+        if (Input.GetAxis(gameObject.name +"Zoom") > 0.9f  || Input.GetMouseButton(1))
             m_isZooming = true;
         else
             m_isZooming = false;
@@ -118,12 +118,12 @@ public class TankController : MonoBehaviour
     void ControlTank()
     {
         if (GetSpeed() < m_maxSpeed)
-        {m_rb.AddForce(transform.forward * Input.GetAxis("Throttle") * m_tankSpeed);}
+        {m_rb.AddForce(transform.forward * Input.GetAxis(gameObject.name +"Throttle") * m_tankSpeed);}
     }
 
     void RotateTank()
     {
-        Quaternion tankRotation = transform.rotation * Quaternion.Euler(Vector3.up * Input.GetAxis("Horizontal") * Input.GetAxis("Throttle") * GetSpeed() * m_tankRotSpeed * Time.deltaTime);
+        Quaternion tankRotation = transform.rotation * Quaternion.Euler(Vector3.up * Input.GetAxis(gameObject.name +"Horizontal") * Input.GetAxis(gameObject.name +"Throttle") * GetSpeed() * m_tankRotSpeed * Time.deltaTime);
         m_rb.MoveRotation(tankRotation);
     }
 
@@ -139,7 +139,7 @@ public class TankController : MonoBehaviour
                 m_fireRateCounter = 0;
             }
         }
-        else if ((Input.GetKeyDown(KeyCode.JoystickButton5) || Input.GetMouseButtonDown(0)) && !m_isShooting)
+        else if ((Input.GetAxis(gameObject.name +"Fire") > 0.5f || Input.GetMouseButtonDown(0)) && !m_isShooting)
         {
             m_isShooting = true;
             m_tankProjectilePrediction.SetIsShooting(true);
@@ -156,19 +156,19 @@ public class TankController : MonoBehaviour
             return;
 
         Quaternion q = m_wheels[2].rotation;
-        float rotAngle = q.eulerAngles.x - GetSpeed() * Input.GetAxis("Throttle");
+        float rotAngle = q.eulerAngles.x - GetSpeed() * Input.GetAxis(gameObject.name +"Throttle");
 
         if (rotAngle > 180 && rotAngle < 270)
             rotAngle = 0;
         else if (rotAngle < 180 && rotAngle > 90)
             rotAngle = 0;
         
-        q.eulerAngles = new Vector3(rotAngle, m_wheels[2].rotation.eulerAngles.y + Input.GetAxis("Horizontal") * m_maxWheelTurnAngle, 0.1f);
+        q.eulerAngles = new Vector3(rotAngle, m_wheels[2].rotation.eulerAngles.y + Input.GetAxis(gameObject.name +"Horizontal") * m_maxWheelTurnAngle, 0.1f);
         m_wheels[0].rotation = q;
         m_wheels[0].localRotation = Quaternion.Euler(m_wheels[0].localRotation.eulerAngles.x, m_wheels[0].localRotation.eulerAngles.y, 0.0f);
 
         q = m_wheels[1].rotation;
-        q.eulerAngles = new Vector3(rotAngle,m_wheels[2].rotation.eulerAngles.y + (Input.GetAxis("Horizontal") * m_maxWheelTurnAngle), 0.1f);
+        q.eulerAngles = new Vector3(rotAngle,m_wheels[2].rotation.eulerAngles.y + (Input.GetAxis(gameObject.name +"Horizontal") * m_maxWheelTurnAngle), 0.1f);
         m_wheels[1].rotation = q;
         m_wheels[1].localRotation = Quaternion.Euler(m_wheels[1].localRotation.eulerAngles.x, m_wheels[1].localRotation.eulerAngles.y, 0.0f);
         

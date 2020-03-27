@@ -11,8 +11,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] 
     private GameObject[] m_playerPrefabs;
+    [SerializeField] 
+    private GameObject m_uiTargetPrefab;
     public List<GameObject> m_playerList { private set; get; }
     private GameObject m_playerContainer;
+    [SerializeField]
+    private Transform m_uiTargetContainer;
     [SerializeField]
     private Transform[] m_spawnPoints;
 
@@ -38,13 +42,18 @@ public class GameManager : MonoBehaviour
     public GameObject AddPlayer(int tankIndex)
     {
         if (m_playerContainer == null)
+        {
             m_playerContainer = new GameObject("Players");
+            m_playerContainer.transform.parent = transform;
+        }
 
         if (m_playerContainer == null)
             return new GameObject("ERROR GAME MANAGER ADD PLAYER");
 
         GameObject newPlayer = Instantiate(m_playerPrefabs[tankIndex], m_spawnPoints[m_playerList.Count].position, Quaternion.identity, m_playerContainer.transform);
-
+        GameObject newUiTarget = Instantiate(m_uiTargetPrefab, Vector3.zero, Quaternion.identity, m_uiTargetContainer);
+        newPlayer.GetComponent<ProjectilePrediction>().m_uiTarget = newUiTarget;
+        
         newPlayer.name = "P" + (m_playerList.Count + 1);
         m_playerList.Add(newPlayer);
 

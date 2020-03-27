@@ -43,8 +43,8 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xInput = Input.GetAxis("Horizontal2");
-        float yInput = Input.GetAxis("Vertical2");
+        float xInput = Input.GetAxis(gameObject.name + "Horizontal2");
+        float yInput = Input.GetAxis(gameObject.name + "Vertical2");
 
         m_input.x = Input.GetAxis("Mouse X");
         m_input.y = Input.GetAxis("Mouse Y");

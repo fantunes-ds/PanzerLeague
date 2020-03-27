@@ -11,6 +11,8 @@ public class SplitScreenManager : MonoBehaviour
 
     private int m_currentNumberOfCameras;
 
+    private GameObject m_cameraContainer;
+
     void Start()
     {
         if (m_instance == null)
@@ -29,7 +31,7 @@ public class SplitScreenManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.P))
             UpdateSplitScreen(++m_currentNumberOfCameras);
     }
 
@@ -74,12 +76,19 @@ public class SplitScreenManager : MonoBehaviour
         {
             for (int i = m_splitCameras.Count; i < p_numberOfCameras; ++i)
             {
-                GameObject newCamera = Instantiate(m_cameraPrefab, Vector3.zero, Quaternion.identity, transform);
-                newCamera.name = "CameraP" + (GameManager.m_instance.m_playerList.Count + 1);
+                if (m_cameraContainer == null)
+                {
+                    m_cameraContainer = new GameObject("Cameras");
+                    m_cameraContainer.transform.parent = transform;
+                }
+                
+                GameObject newCamera = Instantiate(m_cameraPrefab, Vector3.zero, Quaternion.identity, m_cameraContainer.transform);
+                newCamera.name = "P" + (GameManager.m_instance.m_playerList.Count + 1);
                 GameObject newPlayer = GameManager.m_instance.AddPlayer(GameManager.m_instance.m_playerList.Count);
                 newCamera.GetComponent<CameraFollow>().m_cameraTarget = newPlayer.GetComponent<TankController>().m_cameraTarget;
                 newCamera.GetComponent<CameraFollow>().m_zoomTarget = newPlayer.GetComponent<TankController>().m_zoomTarget;
                 newPlayer.GetComponent<TankController>().m_tankCamera = newCamera;
+                newPlayer.GetComponent<ProjectilePrediction>().m_tankCamera = newCamera.GetComponentInChildren<Camera>();
                 m_splitCameras.Add(newCamera);
             }
         }

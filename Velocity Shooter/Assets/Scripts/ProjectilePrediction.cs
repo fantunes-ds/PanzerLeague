@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(LineRenderer))]
 public class ProjectilePrediction : MonoBehaviour

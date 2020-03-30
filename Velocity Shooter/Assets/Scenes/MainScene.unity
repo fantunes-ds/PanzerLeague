@@ -476,7 +476,7 @@ MonoBehaviour:
   m_maxHealth: 2000
   timeToDestruction: 1
   m_maxArmor: 100
-  m_armor: 100
+  m_defaultArmor: 15
 --- !u!1 &684751597
 GameObject:
   m_ObjectHideFlags: 0

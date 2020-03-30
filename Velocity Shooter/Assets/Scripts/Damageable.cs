@@ -12,6 +12,9 @@ public class Damageable : MonoBehaviour
     public float m_health { get; private set; }
     
     public float m_maxArmor = 100.0f;
+    
+    [SerializeField]
+    private float m_defaultArmor = 0.0f;
     public float m_armor { get; private set; }
     private TankController m_tank;
     
@@ -19,6 +22,7 @@ public class Damageable : MonoBehaviour
     void Start()
     {
         m_health = m_maxHealth;
+        m_armor = m_defaultArmor;
         if (GetComponent<TankController>() != null)
         {
             m_tank = GetComponent<TankController>();

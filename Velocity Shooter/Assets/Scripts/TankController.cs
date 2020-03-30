@@ -56,7 +56,8 @@ public class TankController : MonoBehaviour
 
     [SerializeField] private float m_wheelAnimationSpeed = 1.0f;
 
-    
+    private bool m_canMove = true;
+    private bool m_isDead = false;
 
 
     // Start is called before the first frame update
@@ -72,12 +73,15 @@ public class TankController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        ControlTank();
-        RotateTank();
-        RotateTurret();
-        AnimateWheels();
-        SetZoom();
-        Shoot();
+        if (m_canMove)
+        {
+            ControlTank();
+            RotateTank();
+            RotateTurret();
+            AnimateWheels();
+            SetZoom();
+            Shoot();
+        }
     }
 
     void RotateTurret()
@@ -185,5 +189,15 @@ public class TankController : MonoBehaviour
     float GetSpeed()
     {
         return Mathf.Abs(m_rb.velocity.x) + Mathf.Abs(m_rb.velocity.y) + Mathf.Abs(m_rb.velocity.z);
+    }
+
+    public void SetCanMove(bool p_cm)
+    {
+        m_canMove = p_cm;
+    }
+    
+    public void SetIsDead(bool p_id)
+    {
+        m_isDead = p_id;
     }
 }

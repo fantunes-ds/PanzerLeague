@@ -72,7 +72,14 @@ public class CameraFollow : MonoBehaviour
 
     void UpdateCamera()
     {
+        if (m_cameraTarget == null)
+            return;
+        
         Transform target = m_cameraTarget.transform;
+        
+        if (target == null)
+            return;
+        
         if (m_isZooming)
         {
             target = m_zoomTarget.transform;
@@ -83,7 +90,6 @@ public class CameraFollow : MonoBehaviour
             m_cameraObject.RestoreView();
         }
 
-            
         float step = m_moveSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }

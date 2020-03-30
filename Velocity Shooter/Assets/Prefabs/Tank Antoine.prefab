@@ -2344,6 +2344,8 @@ MonoBehaviour:
   - {fileID: 4483258534406115054}
   m_maxWheelTurnAngle: 15
   m_wheelAnimationSpeed: 1
+  m_powerUpUsableTimes: 0
+  m_superBulletDamage: 0
 --- !u!65 &7282988075335883247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2487,6 +2489,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_maxHealth: 100
+  timeToDestruction: 1
+  m_maxArmor: 100
+  m_armor: 0
 --- !u!1 &7282988075536447842
 GameObject:
   m_ObjectHideFlags: 0

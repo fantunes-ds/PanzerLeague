@@ -49,16 +49,17 @@ public class ProjectilePrediction : MonoBehaviour
         m_speed = rb.velocity.magnitude + m_initialSpeed;
         
         DrawTrajectory();
-        Shoot();
+        Shoot(0.0f);
     }
 
-    public void Shoot()
+    public void Shoot(float p_additionalDamage)
     {
         if (!m_isShooting)
             return;
 
         GameObject m_bullet = Instantiate(m_bulletPrefab, m_bulletOrigin.transform.position, m_bulletOrigin.rotation);
         m_bullet.GetComponent<Bullet>().m_speed = m_speed;
+        m_bullet.GetComponent<Bullet>().m_additionalDamage = p_additionalDamage;
         m_isShooting = false;
     }
     private void DrawTrajectory()

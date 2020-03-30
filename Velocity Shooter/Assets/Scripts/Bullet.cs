@@ -10,6 +10,9 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float m_damage = 40.0f;
 
+    [HideInInspector]
+    public float m_additionalDamage = 0.0f;
+
     private void Start()
     {
         StartCoroutine(AutoDestroy(5.0f));
@@ -59,7 +62,7 @@ public class Bullet : MonoBehaviour
                 
         if (p_hit.transform.gameObject.GetComponent<Damageable>() != null)
         {
-            p_hit.transform.gameObject.GetComponent<Damageable>().TakeDamage(m_damage);
+            p_hit.transform.gameObject.GetComponent<Damageable>().TakeDamage(m_damage + m_additionalDamage);
         }
     }
 }

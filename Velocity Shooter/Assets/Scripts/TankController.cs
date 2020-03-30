@@ -58,6 +58,10 @@ public class TankController : MonoBehaviour
 
     private bool m_canMove = true;
     private bool m_isDead = false;
+    public int m_powerUpUsableTimes = 0;
+    
+    [HideInInspector]
+    public float m_superBulletDamage = 0;
 
 
     // Start is called before the first frame update
@@ -122,12 +126,12 @@ public class TankController : MonoBehaviour
     void ControlTank()
     {
         if (GetSpeed() < m_maxSpeed)
-        {m_rb.AddForce(transform.forward * Input.GetAxis(gameObject.name +"Throttle") * m_tankSpeed);}
+        {m_rb.AddForce(transform.forward * (Input.GetAxis(gameObject.name +"Throttle") + Input.GetAxis("Throttle")) * m_tankSpeed);}
     }
 
     void RotateTank()
     {
-        Quaternion tankRotation = transform.rotation * Quaternion.Euler(Vector3.up * Input.GetAxis(gameObject.name +"Horizontal") * Input.GetAxis(gameObject.name +"Throttle") * GetSpeed() * m_tankRotSpeed * Time.deltaTime);
+        Quaternion tankRotation = transform.rotation * Quaternion.Euler(Vector3.up * (Input.GetAxis(gameObject.name +"Horizontal") + Input.GetAxis("Horizontal")) * (Input.GetAxis(gameObject.name +"Throttle") + Input.GetAxis("Throttle")) * GetSpeed() * m_tankRotSpeed * Time.deltaTime);
         m_rb.MoveRotation(tankRotation);
     }
 
@@ -147,7 +151,17 @@ public class TankController : MonoBehaviour
         {
             m_isShooting = true;
             m_tankProjectilePrediction.SetIsShooting(true);
-            m_tankProjectilePrediction.Shoot();
+
+            if (m_powerUpUsableTimes > 0)
+            {
+                m_tankProjectilePrediction.Shoot(m_superBulletDamage);
+                m_powerUpUsableTimes--;
+            }
+            else
+            {
+                m_tankProjectilePrediction.Shoot(0.0f);
+            }
+
             m_rb.AddForce(m_tankProjectilePrediction.m_bulletOrigin.forward * -1 * m_recoil);
             m_rb.AddForce(m_tankProjectilePrediction.m_bulletOrigin.up * -1 * m_recoil * 2.0f);
         }
@@ -160,19 +174,19 @@ public class TankController : MonoBehaviour
             return;
 
         Quaternion q = m_wheels[2].rotation;
-        float rotAngle = q.eulerAngles.x - GetSpeed() * Input.GetAxis(gameObject.name +"Throttle");
+        float rotAngle = q.eulerAngles.x - GetSpeed() * (Input.GetAxis(gameObject.name +"Throttle") + Input.GetAxis("Throttle"));
 
         if (rotAngle > 180 && rotAngle < 270)
             rotAngle = 0;
         else if (rotAngle < 180 && rotAngle > 90)
             rotAngle = 0;
         
-        q.eulerAngles = new Vector3(rotAngle, m_wheels[2].rotation.eulerAngles.y + Input.GetAxis(gameObject.name +"Horizontal") * m_maxWheelTurnAngle, 0.1f);
+        q.eulerAngles = new Vector3(rotAngle, m_wheels[2].rotation.eulerAngles.y + (Input.GetAxis("Horizontal") * m_maxWheelTurnAngle + Input.GetAxis(gameObject.name +"Horizontal") * m_maxWheelTurnAngle), 0.1f);
         m_wheels[0].rotation = q;
         m_wheels[0].localRotation = Quaternion.Euler(m_wheels[0].localRotation.eulerAngles.x, m_wheels[0].localRotation.eulerAngles.y, 0.0f);
 
         q = m_wheels[1].rotation;
-        q.eulerAngles = new Vector3(rotAngle,m_wheels[2].rotation.eulerAngles.y + (Input.GetAxis(gameObject.name +"Horizontal") * m_maxWheelTurnAngle), 0.1f);
+        q.eulerAngles = new Vector3(rotAngle,m_wheels[2].rotation.eulerAngles.y + (Input.GetAxis("Horizontal") * m_maxWheelTurnAngle + Input.GetAxis(gameObject.name +"Horizontal") * m_maxWheelTurnAngle), 0.1f);
         m_wheels[1].rotation = q;
         m_wheels[1].localRotation = Quaternion.Euler(m_wheels[1].localRotation.eulerAngles.x, m_wheels[1].localRotation.eulerAngles.y, 0.0f);
         

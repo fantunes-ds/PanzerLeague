@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Transform[] m_spawnPoints;
 
+    public int m_numberOfInstancedPlayers { private set; get; }
+
     private void Awake()
     {
         if (m_instance == null)
@@ -55,7 +57,8 @@ public class GameManager : MonoBehaviour
         newPlayer.name = "P" + (m_playerList.Count + 1);
         m_playerList.Add(newPlayer);
 
-
+        m_numberOfInstancedPlayers++;
+        
         return newPlayer;
     }
 

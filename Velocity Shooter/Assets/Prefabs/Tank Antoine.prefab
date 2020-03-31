@@ -2342,7 +2342,7 @@ MonoBehaviour:
   - {fileID: 2033831372837287668}
   - {fileID: 2503880743038454007}
   - {fileID: 4483258534406115054}
-  m_maxWheelTurnAngle: 15
+  m_maxWheelTurnAngle: 30
   m_wheelAnimationSpeed: 1
   m_powerUpUsableTimes: 0
   m_superBulletDamage: 0

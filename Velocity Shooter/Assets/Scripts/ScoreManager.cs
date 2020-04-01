@@ -16,7 +16,6 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     private List<Color> m_textColors;
 
-    [SerializeField]
     private List<int> m_scores;
 
     private bool m_isInitialized;
@@ -102,20 +101,15 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int p_score, int p_playerNum)
     {
+        p_playerNum--;
         if (p_playerNum < 0 || p_playerNum > m_nbOfPlayers)
-        {
-            m_scores[p_playerNum] += p_score;
-        }
+            return;
+        
+        m_scores[p_playerNum] += p_score;
     }
 
     private void DisplayScore()
     {
-        
-        foreach (TextMeshProUGUI t in m_scoreText)
-        {
-            t.text = "";
-        }
-        
         for (int i = 0; i < m_nbOfPlayers; ++i)
         {
             for (int j = 0; j < m_nbOfPlayers; ++j)

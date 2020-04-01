@@ -2492,6 +2492,7 @@ MonoBehaviour:
   timeToDestruction: 1
   m_maxArmor: 100
   m_defaultArmor: 0
+  m_pointsGivenOnDestruction: 10
 --- !u!1 &7282988075536447842
 GameObject:
   m_ObjectHideFlags: 0

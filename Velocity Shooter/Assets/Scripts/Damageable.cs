@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
+    private int m_lastHitId;
     public float m_maxHealth = 100.0f;
 
     [SerializeField] 
-    private float timeToDestruction = 1.0f;
+    private float m_timeToDestruction = 1.0f;
     public float m_health { get; private set; }
     
     public float m_maxArmor = 100.0f;
@@ -15,6 +16,9 @@ public class Damageable : MonoBehaviour
     private float m_defaultArmor = 0.0f;
     public float m_armor { get; private set; }
     private TankController m_tank;
+
+    [SerializeField]
+    private int m_pointsGivenOnDestruction;
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +31,7 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float p_damage)
+    public void TakeDamage(float p_damage, int p_originId)
     {
         float remainingDamage = p_damage;
         while (m_armor > 0 && remainingDamage > 0)
@@ -36,6 +40,8 @@ public class Damageable : MonoBehaviour
             remainingDamage--;
         }
         m_health -= remainingDamage;
+        
+        m_lastHitId = p_originId;
         CheckDestruction();
     }
     
@@ -62,9 +68,10 @@ public class Damageable : MonoBehaviour
         if (m_tank == null) 
             return;
             
+        GameManager.m_instance.GetComponent<ScoreManager>().AddScore(m_pointsGivenOnDestruction, m_lastHitId);
         m_tank.SetCanMove(false);
         m_tank.SetIsDead(true);
-        StartCoroutine(DestroyDelayed(1.0f));
+        StartCoroutine(DestroyDelayed(m_timeToDestruction));
     }
 
     IEnumerator DestroyDelayed(float p_time)

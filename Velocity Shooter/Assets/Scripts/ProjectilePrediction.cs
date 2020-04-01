@@ -55,8 +55,10 @@ public class ProjectilePrediction : MonoBehaviour
             return;
 
         GameObject m_bullet = Instantiate(m_bulletPrefab, m_bulletOrigin.transform.position, m_bulletOrigin.rotation);
-        m_bullet.GetComponent<Bullet>().m_speed = m_speed;
-        m_bullet.GetComponent<Bullet>().m_additionalDamage = p_additionalDamage;
+        Bullet m_refBullet = m_bullet.GetComponent<Bullet>();
+        m_refBullet.m_fireOriginId = gameObject.name[1] - 48;
+        m_refBullet.m_speed = m_speed;
+        m_refBullet.m_additionalDamage = p_additionalDamage;
         m_isShooting = false;
     }
     private void DrawTrajectory()

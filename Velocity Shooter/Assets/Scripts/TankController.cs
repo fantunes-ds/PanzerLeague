@@ -33,7 +33,7 @@ public class TankController : MonoBehaviour
     [SerializeField] 
     private float m_canonRotSpeed = 60;
     [SerializeField] 
-    private float m_maxCanonRotAngle = 10.0f;
+    private Vector2 m_maxCanonRotAngle;
     [SerializeField] 
     private float m_fireRate = 1.0f;
     [SerializeField][Tooltip("The recoil percentage caused by the shot")][Range(0f,500f)]
@@ -96,13 +96,13 @@ public class TankController : MonoBehaviour
         m_turret.transform.localRotation = Quaternion.Euler(0.0f, m_turret.transform.localRotation.eulerAngles.y, 0.0f);
 
         Quaternion canonRotation = m_canon.transform.localRotation;
-        canonRotation = Quaternion.Euler(-m_tankCameraTransform.rotation.eulerAngles.x, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
+        canonRotation = Quaternion.Euler(m_tankCameraTransform.rotation.eulerAngles.x, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         
         //Clamp X rotation
-        if (canonRotation.eulerAngles.x > m_maxCanonRotAngle && canonRotation.eulerAngles.x < 270.0f)
-            canonRotation = Quaternion.Euler(m_maxCanonRotAngle, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
-        else if (canonRotation.eulerAngles.x < 360.0f - m_maxCanonRotAngle && canonRotation.eulerAngles.x > 270.0f )
-            canonRotation = Quaternion.Euler(360.0f - m_maxCanonRotAngle, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
+        if (canonRotation.eulerAngles.x < m_maxCanonRotAngle.x && canonRotation.eulerAngles.x > 270)
+            canonRotation = Quaternion.Euler(m_maxCanonRotAngle.x, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
+        else if (canonRotation.eulerAngles.x > m_maxCanonRotAngle.y && canonRotation.eulerAngles.x < 270)
+            canonRotation = Quaternion.Euler(m_maxCanonRotAngle.y, canonRotation.eulerAngles.y, canonRotation.eulerAngles.z);
         
         m_canon.transform.localRotation = canonRotation;
     }

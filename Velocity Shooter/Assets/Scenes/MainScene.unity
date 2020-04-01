@@ -268,11 +268,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174448662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.9797096, y: -1.3036804, z: 7.0109024}
+  m_LocalPosition: {x: 4.9797096, y: 0.78, z: 7.0109024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &235373398
 GameObject:
@@ -474,9 +474,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_maxHealth: 2000
-  timeToDestruction: 1
+  m_timeToDestruction: 1
   m_maxArmor: 100
   m_defaultArmor: 15
+  m_pointsGivenOnDestruction: 0
 --- !u!1 &684751597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1696852944
 MonoBehaviour:
@@ -1494,6 +1495,18 @@ PrefabInstance:
       propertyPath: m_spawnPoints.Array.data[3]
       value: 
       objectReference: {fileID: 14744288}
+    - target: {fileID: 3572647568111718554, guid: 31ab0c8aa9891d54bb3b952d55c2d35d,
+        type: 3}
+      propertyPath: m_playerPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8869982652523523379, guid: 9c9d8506c9c91dc41aa3955fe2b9ebbf,
+        type: 3}
+    - target: {fileID: 3572647568111718554, guid: 31ab0c8aa9891d54bb3b952d55c2d35d,
+        type: 3}
+      propertyPath: m_playerPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8869982652523523379, guid: fbc73d43b64e0b740bb3d2a346b27e81,
+        type: 3}
     - target: {fileID: 3572647568111718555, guid: 31ab0c8aa9891d54bb3b952d55c2d35d,
         type: 3}
       propertyPath: m_Name

@@ -170,7 +170,7 @@ public class TankController : MonoBehaviour
             return;
 
         Quaternion q = m_wheels[2].rotation;
-        float rotAngle = q.eulerAngles.x - GetSpeed() * (Input.GetAxis(gameObject.name +"Throttle") + Input.GetAxis("Throttle"));
+        float rotAngle = q.eulerAngles.x + GetSpeed() * (Input.GetAxis(gameObject.name +"Throttle") + Input.GetAxis("Throttle"));
 
         if (rotAngle > 180 && rotAngle < 270)
             rotAngle = 0;

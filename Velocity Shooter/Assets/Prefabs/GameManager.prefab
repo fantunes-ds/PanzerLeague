@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3572647568111718557}
   - component: {fileID: 3572647568111718554}
   - component: {fileID: 3572647568111718556}
+  - component: {fileID: 3572647568190981067}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerPrefabs:
-  - {fileID: 7282988075335883251, guid: 5922effc2608c804e8d951f0dc15f105, type: 3}
-  - {fileID: 7282988075335883251, guid: 5922effc2608c804e8d951f0dc15f105, type: 3}
-  - {fileID: 7282988075335883251, guid: 5922effc2608c804e8d951f0dc15f105, type: 3}
-  - {fileID: 7282988075335883251, guid: 5922effc2608c804e8d951f0dc15f105, type: 3}
+  - {fileID: 8869982652523523379, guid: 9c9d8506c9c91dc41aa3955fe2b9ebbf, type: 3}
+  - {fileID: 8869982652523523379, guid: fbc73d43b64e0b740bb3d2a346b27e81, type: 3}
+  - {fileID: 8869982652523523379, guid: f58749b024c54294aa48d2ed3c058951, type: 3}
+  - {fileID: 8869982652523523379, guid: a1ccb3cfc1156d24e894a874f18c2f89, type: 3}
   m_uiTargetPrefab: {fileID: 453853131720330559, guid: 2b39973e0def6f740904e1637d623192,
     type: 3}
   m_uiTargetContainer: {fileID: 0}
@@ -71,3 +72,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cameraPrefab: {fileID: 8331506303563285680, guid: a5f62bd6b7fdd1f4eb3cc30e71739b67,
     type: 3}
+--- !u!114 &3572647568190981067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572647568111718555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6d6d22d4c5d3e4d876b5561762654d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_prefab: {fileID: 8434730880602531129, guid: e83ceca49c786754d8cfa64fc199f675,
+    type: 3}
+  m_uiTargetTransform: {fileID: 0}
+  m_textColors:
+  - {r: 0.19063722, g: 0.6785067, b: 0.7924528, a: 1}
+  - {r: 0.7830189, g: 0.45862696, b: 0.1071111, a: 1}
+  - {r: 0.16282625, g: 0.7075472, b: 0.14351194, a: 1}
+  - {r: 0.735849, g: 0.09371662, b: 0.4757813, a: 1}

@@ -1495,18 +1495,6 @@ PrefabInstance:
       propertyPath: m_spawnPoints.Array.data[3]
       value: 
       objectReference: {fileID: 14744288}
-    - target: {fileID: 3572647568111718554, guid: 31ab0c8aa9891d54bb3b952d55c2d35d,
-        type: 3}
-      propertyPath: m_playerPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 8869982652523523379, guid: 9c9d8506c9c91dc41aa3955fe2b9ebbf,
-        type: 3}
-    - target: {fileID: 3572647568111718554, guid: 31ab0c8aa9891d54bb3b952d55c2d35d,
-        type: 3}
-      propertyPath: m_playerPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 8869982652523523379, guid: fbc73d43b64e0b740bb3d2a346b27e81,
-        type: 3}
     - target: {fileID: 3572647568111718555, guid: 31ab0c8aa9891d54bb3b952d55c2d35d,
         type: 3}
       propertyPath: m_Name
@@ -1567,31 +1555,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3572647568190981067, guid: 31ab0c8aa9891d54bb3b952d55c2d35d,
+        type: 3}
+      propertyPath: m_uiTargetTransform
+      value: 
+      objectReference: {fileID: 684751601}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31ab0c8aa9891d54bb3b952d55c2d35d, type: 3}
---- !u!1 &3572647568190981066 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3572647568111718555, guid: 31ab0c8aa9891d54bb3b952d55c2d35d,
-    type: 3}
-  m_PrefabInstance: {fileID: 3572647568190981065}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3572647568190981067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3572647568190981066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e6d6d22d4c5d3e4d876b5561762654d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_prefab: {fileID: 8434730880602531129, guid: e83ceca49c786754d8cfa64fc199f675,
-    type: 3}
-  m_uiTargetTransform: {fileID: 684751601}
-  m_textColors:
-  - {r: 0.19063722, g: 0.6785067, b: 0.7924528, a: 1}
-  - {r: 0.7830189, g: 0.45862696, b: 0.1071111, a: 1}
-  - {r: 0.16282625, g: 0.7075472, b: 0.14351194, a: 1}
-  - {r: 0.735849, g: 0.09371662, b: 0.4757813, a: 1}

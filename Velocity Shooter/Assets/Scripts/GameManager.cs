@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour
     private GameObject m_playerContainer;
     [SerializeField]
     private Transform m_uiTargetContainer;
-    [SerializeField]
-    private Transform[] m_spawnPoints;
+    public Transform[] m_spawnPoints;
 
     public int m_numberOfInstancedPlayers { private set; get; }
 

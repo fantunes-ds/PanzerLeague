@@ -1357,9 +1357,9 @@ MonoBehaviour:
   m_cameraTarget: {fileID: 8869982653441684581}
   m_zoomTarget: {fileID: 2548174959518953295}
   m_tankCamera: {fileID: 0}
-  m_tankSpeed: 30
+  m_tankSpeed: 25
   m_tankRotSpeed: 20
-  m_maxSpeed: 7
+  m_maxSpeed: 15
   m_turret: {fileID: 2548174958075866319}
   m_canon: {fileID: 5308650967350789213}
   m_canonRotSpeed: 30
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_timeToDestruction: 1
   m_maxArmor: 100
   m_defaultArmor: 0
-  m_pointsGivenOnDestruction: 10
+  m_pointsGivenOnDestruction: 1
 --- !u!136 &4409685462194802150
 CapsuleCollider:
   m_ObjectHideFlags: 0

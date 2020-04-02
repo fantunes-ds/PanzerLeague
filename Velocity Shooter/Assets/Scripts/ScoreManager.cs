@@ -21,6 +21,7 @@ public class ScoreManager : MonoBehaviour
     private bool m_isInitialized;
 
     private int m_nbOfPlayers = 0;
+    private int m_nbOfPointsToWin = 10;
 
     private void Initialize()
     {
@@ -106,6 +107,7 @@ public class ScoreManager : MonoBehaviour
             return;
         
         m_scores[p_playerNum] += p_score;
+        CheckForVictory(p_playerNum);
     }
 
     private void DisplayScore()
@@ -116,12 +118,20 @@ public class ScoreManager : MonoBehaviour
             {
                 if (j == i)
                 {
-                    m_scoreText[(i * m_nbOfPlayers) + j].text = "P" + (i + 1) + " = " + m_scores[i] + " ";
+                    m_scoreText[(i * m_nbOfPlayers) + j].text = "P" + (i + 1) + " kills = " + m_scores[i] + " ";
                     continue;
                 }
 
-                m_scoreText[i * m_nbOfPlayers + (j % m_nbOfPlayers)].text = "P" + ((j % m_nbOfPlayers)+1) + " = " + m_scores[j] + " ";
+                m_scoreText[i * m_nbOfPlayers + (j % m_nbOfPlayers)].text = "P" + ((j % m_nbOfPlayers)+1) + " kills = " + m_scores[j] + " ";
             }
+        }
+    }
+
+    private void CheckForVictory(int p_playerNum)
+    {
+        if (m_scores[p_playerNum] >= m_nbOfPointsToWin)
+        {
+            Debug.Log("P" + (p_playerNum + 1) + " Won the game !");
         }
     }
 

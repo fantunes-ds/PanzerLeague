@@ -53,7 +53,8 @@ public class TankController : MonoBehaviour
     [SerializeField] private float m_wheelAnimationSpeed = 1.0f;
 
     private bool m_canMove = true;
-    private bool m_isDead = false;
+    public bool m_isDead { private set; get; }
+    public bool m_canRespawn { private set; get; }
     public int m_powerUpUsableTimes = 0;
     
     [HideInInspector]
@@ -68,6 +69,7 @@ public class TankController : MonoBehaviour
         m_tankCameraFollow = m_tankCamera.GetComponent<CameraFollow>();
         m_lr = transform.GetComponent<LineRenderer>();
         m_tankProjectilePrediction = GetComponent<ProjectilePrediction>();
+        m_canRespawn = false;
     }
 
     // Update is called once per frame
@@ -82,8 +84,22 @@ public class TankController : MonoBehaviour
             SetZoom();
             Shoot();
         }
+        else if (m_canRespawn)
+        {
+            Respawn();
+        }
     }
 
+    void Respawn()
+    {
+        Transform[] spp = GameManager.m_instance.m_spawnPoints;
+        transform.position = spp[Random.Range(0, spp.Length)].position;
+        SetCanRespawn(false);
+        SetIsDead(false);
+        SetCanMove(true);
+        GetComponent<Damageable>().ResetValuesToDefault();
+    }
+    
     void RotateTurret()
     {
         if (Input.GetKey(KeyCode.C))
@@ -204,6 +220,11 @@ public class TankController : MonoBehaviour
     public void SetCanMove(bool p_cm)
     {
         m_canMove = p_cm;
+    }
+    
+    public void SetCanRespawn(bool p_cr)
+    {
+        m_canRespawn = p_cr;
     }
     
     public void SetIsDead(bool p_id)

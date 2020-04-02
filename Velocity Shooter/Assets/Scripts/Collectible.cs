@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
@@ -6,7 +7,8 @@ public class Collectible : MonoBehaviour
     {
         Armor,
         Life,
-        SuperBullet
+        SuperBullet,
+        Boost
     }
 
     [SerializeField]
@@ -20,23 +22,37 @@ public class Collectible : MonoBehaviour
     private int m_maxSuperBulletUsage = 2;
     [SerializeField]
     private int m_superBulletDamage = 15;
+    [SerializeField]
+    private int m_boostForce = 500;
+
+    [SerializeField]
+    private GameObject[] m_meshesPrefabs;
     
     void Start()
     {
         switch (m_type)
         {
             case CollectibleType.Armor:
-                GetComponent<MeshRenderer>().materials[0].SetColor("_BaseColor", Color.cyan);
+                GetComponent<MeshFilter>().mesh = m_meshesPrefabs[0].GetComponent<MeshFilter>().sharedMesh;
+                GetComponent<MeshRenderer>().material = m_meshesPrefabs[0].GetComponent<MeshRenderer>().sharedMaterial;
                 break;
             case CollectibleType.Life:
-                GetComponent<MeshRenderer>().materials[0].SetColor("_BaseColor", Color.red);
+                GetComponent<MeshFilter>().mesh = m_meshesPrefabs[1].GetComponent<MeshFilter>().sharedMesh;
+                GetComponent<MeshRenderer>().material = m_meshesPrefabs[1].GetComponent<MeshRenderer>().sharedMaterial;
                 break;
             case CollectibleType.SuperBullet:
-                GetComponent<MeshRenderer>().materials[0].SetColor("_BaseColor", Color.yellow);
+                GetComponent<MeshFilter>().mesh = m_meshesPrefabs[2].GetComponent<MeshFilter>().sharedMesh;
+                GetComponent<MeshRenderer>().material = m_meshesPrefabs[2].GetComponent<MeshRenderer>().sharedMaterial;
+                break;
+            case CollectibleType.Boost:
+                GetComponent<MeshFilter>().mesh = m_meshesPrefabs[3].GetComponent<MeshFilter>().sharedMesh;
+                GetComponent<MeshRenderer>().material = m_meshesPrefabs[3].GetComponent<MeshRenderer>().sharedMaterial;
                 break;
         }
-    }
 
+        BoxCollider newBC = gameObject.AddComponent<BoxCollider>();
+        newBC.isTrigger = true;
+    }
     private void OnTriggerEnter(Collider other)
     {
         switch (m_type)
@@ -66,7 +82,13 @@ public class Collectible : MonoBehaviour
                     other.gameObject.GetComponent<TankController>().m_superBulletDamage = m_superBulletDamage;
                     Destroy(gameObject);
                 }
-
+                break;
+            case CollectibleType.Boost:
+                if (other.gameObject.GetComponent<TankController>())
+                {
+                    other.gameObject.GetComponent<Rigidbody>().AddForce(other.gameObject.transform.forward * m_boostForce) ;
+                    Destroy(gameObject);
+                }
                 break;
         }
     }

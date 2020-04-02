@@ -23,12 +23,17 @@ public class Damageable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_health = m_maxHealth;
-        m_armor = m_defaultArmor;
+        ResetValuesToDefault();
         if (GetComponent<TankController>() != null)
         {
             m_tank = GetComponent<TankController>();
         }
+    }
+
+    public void ResetValuesToDefault()
+    {
+        m_health = m_maxHealth;
+        m_armor = m_defaultArmor;
     }
 
     public void TakeDamage(float p_damage, int p_originId)
@@ -67,16 +72,20 @@ public class Damageable : MonoBehaviour
         //Play any death animation/fire if needed here
         if (m_tank == null) 
             return;
+
+        if (m_tank.m_isDead)
+            return;
             
         GameManager.m_instance.GetComponent<ScoreManager>().AddScore(m_pointsGivenOnDestruction, m_lastHitId);
         m_tank.SetCanMove(false);
         m_tank.SetIsDead(true);
-        StartCoroutine(DestroyDelayed(m_timeToDestruction));
+        StartCoroutine(HideDelayed(m_timeToDestruction));
     }
 
-    IEnumerator DestroyDelayed(float p_time)
+    IEnumerator HideDelayed(float p_time)
     {
         yield return new WaitForSeconds(p_time);
-        Destroy(gameObject);
+        //Stop death animation/fire if needed here
+        m_tank.SetCanRespawn(true);
     }
 }

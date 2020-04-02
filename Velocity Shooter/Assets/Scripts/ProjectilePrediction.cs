@@ -70,7 +70,7 @@ public class ProjectilePrediction : MonoBehaviour
         Vector3 predictedBulletVelocity = m_bulletOrigin.forward * m_speed;
         points.Add(point1);
 
-        LayerMask lm = ~(1 << 8);
+        LayerMask lm = ~(1 << 8 | 1 << 4);
         for (float i = 0; i < m_maxCurveDistance * 4; i += stepSize)
         {
             predictedBulletVelocity += Physics.gravity * stepSize;

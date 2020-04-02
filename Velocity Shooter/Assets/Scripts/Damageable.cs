@@ -79,13 +79,6 @@ public class Damageable : MonoBehaviour
         GameManager.m_instance.GetComponent<ScoreManager>().AddScore(m_pointsGivenOnDestruction, m_lastHitId);
         m_tank.SetCanMove(false);
         m_tank.SetIsDead(true);
-        StartCoroutine(HideDelayed(m_timeToDestruction));
-    }
-
-    IEnumerator HideDelayed(float p_time)
-    {
-        yield return new WaitForSeconds(p_time);
-        //Stop death animation/fire if needed here
-        m_tank.SetCanRespawn(true);
+        m_tank.StartCoroutine(m_tank.EnableRespawnDelayed(m_timeToDestruction));
     }
 }

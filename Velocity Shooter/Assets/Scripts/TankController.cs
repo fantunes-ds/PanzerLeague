@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TankController : MonoBehaviour
@@ -94,10 +95,17 @@ public class TankController : MonoBehaviour
     {
         Transform[] spp = GameManager.m_instance.m_spawnPoints;
         transform.position = spp[Random.Range(0, spp.Length)].position;
+        
         SetCanRespawn(false);
         SetIsDead(false);
         SetCanMove(true);
+        
         GetComponent<Damageable>().ResetValuesToDefault();
+        
+        m_rb.drag = 0.1f;
+        
+        if (m_rb.useGravity == false)
+            m_rb.useGravity = true;
     }
     
     void RotateTurret()
@@ -230,5 +238,12 @@ public class TankController : MonoBehaviour
     public void SetIsDead(bool p_id)
     {
         m_isDead = p_id;
+    }
+    
+    public IEnumerator EnableRespawnDelayed(float p_time)
+    {
+        yield return new WaitForSeconds(p_time);
+        //Stop death animation/fire if needed here
+        SetCanRespawn(true);
     }
 }

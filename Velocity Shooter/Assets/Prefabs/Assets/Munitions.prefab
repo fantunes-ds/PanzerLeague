@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec84714f1abe55647b7b3429be0fc40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 1
+  m_type: 2
   m_healthReceived: 50
   m_armorReceived: 50
   m_maxSuperBulletUsage: 2

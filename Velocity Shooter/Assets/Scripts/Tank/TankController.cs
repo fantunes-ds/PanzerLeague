@@ -100,6 +100,7 @@ public class TankController : MonoBehaviour
             StartCoroutine(EnableRespawnDelayed(1.0f));
             SetCanMove(false);
             SetIsDead(true);
+            GameManager.m_instance.GetComponent<ScoreManager>().AddScore(-1, gameObject.name[1] - 48);
         }
     }
 

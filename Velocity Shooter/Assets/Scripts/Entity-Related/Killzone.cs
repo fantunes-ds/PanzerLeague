@@ -36,6 +36,7 @@ public class Killzone : MonoBehaviour
             m_tank.StartCoroutine(m_tank.EnableRespawnDelayed(m_timeToRespawn));
             m_tank.SetCanMove(false);
             m_tank.SetIsDead(true);
+            GameManager.m_instance.GetComponent<ScoreManager>().AddScore(-1, m_tank.name[1] - 48);
         }
     }
 }

@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 3572647568111718554}
   - component: {fileID: 3572647568111718556}
   - component: {fileID: 3572647568190981067}
+  - component: {fileID: 145572192}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3572647568111718557
 Transform:
@@ -53,11 +54,8 @@ MonoBehaviour:
   m_uiTargetPrefab: {fileID: 453853131720330559, guid: 2b39973e0def6f740904e1637d623192,
     type: 3}
   m_uiTargetContainer: {fileID: 0}
-  m_spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_spawnPoints: []
+  m_playersToAdd: 0
 --- !u!114 &3572647568111718556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cameraPrefab: {fileID: 8331506303563285680, guid: a5f62bd6b7fdd1f4eb3cc30e71739b67,
     type: 3}
+  m_playerUIManager: {fileID: 0}
+  m_scoreManager: {fileID: 0}
 --- !u!114 &3572647568190981067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +88,26 @@ MonoBehaviour:
     type: 3}
   m_uiTargetTransform: {fileID: 0}
   m_textColors:
-  - {r: 0.19063722, g: 0.6785067, b: 0.7924528, a: 1}
-  - {r: 0.7830189, g: 0.45862696, b: 0.1071111, a: 1}
-  - {r: 0.16282625, g: 0.7075472, b: 0.14351194, a: 1}
-  - {r: 0.735849, g: 0.09371662, b: 0.4757813, a: 1}
+  - {r: 0.30495724, g: 0.5001526, b: 0.8396226, a: 1}
+  - {r: 0.20746613, g: 0.6792453, b: 0.13777146, a: 1}
+  - {r: 1, g: 0.90196085, b: 0, a: 1}
+  - {r: 0.735849, g: 0.047693912, b: 0, a: 1}
+--- !u!114 &145572192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572647568111718555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a3a7f4170e4aa4588721334a39078a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_healthUIPrefab: {fileID: 7360980405162939328, guid: f199b0f79c58cd04bba305a60f3982ed,
+    type: 3}
+  m_armorUIPrefab: {fileID: 695214839338011106, guid: ce698c4da95647b43abfcb27b3ca3935,
+    type: 3}
+  m_superBulletUIPrefab: {fileID: 744021913958004630, guid: a61d44da883cc8a4e9bd1ea9c4b75b87,
+    type: 3}
+  m_uiTargetTransform: {fileID: 0}

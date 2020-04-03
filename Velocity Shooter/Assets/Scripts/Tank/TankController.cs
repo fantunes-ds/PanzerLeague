@@ -85,10 +85,21 @@ public class TankController : MonoBehaviour
             AnimateWheels();
             SetZoom();
             Shoot();
+            Suicide();
         }
         else if (m_canRespawn)
         {
             Respawn();
+        }
+    }
+
+    void Suicide()
+    {
+        if (Input.GetAxis(gameObject.name + "Suicide") > 0.9f)
+        {
+            StartCoroutine(EnableRespawnDelayed(1.0f));
+            SetCanMove(false);
+            SetIsDead(true);
         }
     }
 

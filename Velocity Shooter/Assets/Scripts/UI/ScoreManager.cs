@@ -22,6 +22,9 @@ public class ScoreManager : MonoBehaviour
     private int m_nbOfPlayers = 0;
     private int m_nbOfPointsToWin = 10;
 
+    [SerializeField]
+    private GameObject m_victoryText;
+
     public void Initialize()
     {
         m_uiTargetTransform = GameManager.m_instance.m_uiTargetContainer;
@@ -132,7 +135,13 @@ public class ScoreManager : MonoBehaviour
     {
         if (m_scores[p_playerNum] >= m_nbOfPointsToWin)
         {
-            Debug.Log("P" + (p_playerNum + 1) + " Won the game !");
+            GameObject vt = Instantiate(m_victoryText, m_uiTargetTransform);
+            vt.GetComponent<TextMeshProUGUI>().text = "P" + (p_playerNum + 1) + " Won the game !";
+
+            for (int i = 0; i < m_nbOfPlayers; ++i)
+            {
+                GameManager.m_instance.m_playerList[i].GetComponent<TankController>().SetCanMove(false);
+            }
         }
     }
 

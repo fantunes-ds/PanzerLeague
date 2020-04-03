@@ -86,12 +86,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_prefab: {fileID: 8434730880602531129, guid: e83ceca49c786754d8cfa64fc199f675,
     type: 3}
-  m_uiTargetTransform: {fileID: 0}
   m_textColors:
   - {r: 0.30495724, g: 0.5001526, b: 0.8396226, a: 1}
   - {r: 0.20746613, g: 0.6792453, b: 0.13777146, a: 1}
   - {r: 1, g: 0.90196085, b: 0, a: 1}
   - {r: 0.735849, g: 0.047693912, b: 0, a: 1}
+  m_victoryText: {fileID: 5787091097095362619, guid: fd019a4ce4f73894cab27ebd6a1faae4,
+    type: 3}
 --- !u!114 &145572192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,4 +111,3 @@ MonoBehaviour:
     type: 3}
   m_superBulletUIPrefab: {fileID: 744021913958004630, guid: a61d44da883cc8a4e9bd1ea9c4b75b87,
     type: 3}
-  m_uiTargetTransform: {fileID: 0}

@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerUIManager : MonoBehaviour
 {
@@ -50,12 +50,12 @@ public class PlayerUIManager : MonoBehaviour
         switch (m_nbOfPlayers)
         {
             case 2:
-                m_healthUI[0].transform.localPosition = new Vector3(-900, 220, 0); 
-                m_healthUI[1].transform.localPosition = new Vector3(65, 220, 0);
-                m_armorUI[0].transform.localPosition = new Vector3(-910, 130, 0); 
-                m_armorUI[1].transform.localPosition = new Vector3(60, 130, 0);
-                m_superBulletUI[0].transform.localPosition = new Vector3(-910, 40, 0); 
-                m_superBulletUI[1].transform.localPosition = new Vector3(60, 40, 0);
+                m_healthUI[0].transform.localPosition = new Vector3(-900, -315, 0); 
+                m_healthUI[1].transform.localPosition = new Vector3(65, -315, 0);
+                m_armorUI[0].transform.localPosition = new Vector3(-910, -400, 0); 
+                m_armorUI[1].transform.localPosition = new Vector3(60, -400, 0);
+                m_superBulletUI[0].transform.localPosition = new Vector3(-910, -490, 0); 
+                m_superBulletUI[1].transform.localPosition = new Vector3(60, -490, 0);
                 break;
             case 3:
                 m_healthUI[0].transform.localPosition = new Vector3(-900, 220, 0); 
@@ -83,13 +83,17 @@ public class PlayerUIManager : MonoBehaviour
                 m_superBulletUI[3].transform.localPosition = new Vector3(60,-490, 0);
                 break;
         }
+
+        m_isInitialized = true;
     }
 
     void UpdateUI()
     {
         for (int i = 0; i < m_nbOfPlayers; ++i)
         {
-//            m_healthUI[i].GetComponentInChildren<Image>();
+            m_healthUI[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = m_tanks[i].GetComponent<Damageable>().m_health / m_tanks[i].GetComponent<Damageable>().m_maxHealth;
+            m_armorUI[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = m_tanks[i].GetComponent<Damageable>().m_armor / m_tanks[i].GetComponent<Damageable>().m_maxArmor;
+            m_superBulletUI[i].GetComponentInChildren<TextMeshProUGUI>().text = "X " + m_tanks[i].GetComponent<TankController>().m_powerUpUsableTimes;
         }
     }
     

@@ -62,7 +62,7 @@ public class ScoreManager : MonoBehaviour
             case 2:
                 m_scoreText[0].transform.localPosition = new Vector3(-860, 490, 0); 
                 m_scoreText[1].transform.localPosition = new Vector3(-80, -490, 0); 
-                m_scoreText[m_nbOfPlayers + 1].transform.localPosition = new Vector3(80, 490, 0); 
+                m_scoreText[m_nbOfPlayers + 1].transform.localPosition = new Vector3(100, 490, 0); 
                 m_scoreText[m_nbOfPlayers + 0].transform.localPosition = new Vector3(860, -490, 0); 
                 break;
             case 3:

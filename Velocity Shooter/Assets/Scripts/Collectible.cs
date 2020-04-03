@@ -97,6 +97,6 @@ public class Collectible : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, m_rotationSpeed,0);
+        transform.RotateAround(Vector3.up, m_rotationSpeed * Time.deltaTime);
     }
 }

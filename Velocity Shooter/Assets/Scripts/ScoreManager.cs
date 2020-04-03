@@ -60,36 +60,36 @@ public class ScoreManager : MonoBehaviour
         switch (m_nbOfPlayers)
         {
             case 2:
-                m_scoreText[0].transform.localPosition = new Vector3(-880, 490, 0); 
+                m_scoreText[0].transform.localPosition = new Vector3(-860, 490, 0); 
                 m_scoreText[1].transform.localPosition = new Vector3(-80, -490, 0); 
                 m_scoreText[m_nbOfPlayers + 1].transform.localPosition = new Vector3(80, 490, 0); 
-                m_scoreText[m_nbOfPlayers + 0].transform.localPosition = new Vector3(880, -490, 0); 
+                m_scoreText[m_nbOfPlayers + 0].transform.localPosition = new Vector3(860, -490, 0); 
                 break;
             case 3:
-                m_scoreText[(0 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(-880, 490, 0); 
+                m_scoreText[(0 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(-860, 490, 0); 
                 m_scoreText[(0 * m_nbOfPlayers) + 1].transform.localPosition = new Vector3(-80, 80, 0); 
                 m_scoreText[(0 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(-80, 55, 0); 
                 m_scoreText[(1 * m_nbOfPlayers) + 1].transform.localPosition = new Vector3(80, 490, 0); 
-                m_scoreText[(1 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(880, 80, 0); 
+                m_scoreText[(1 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(860, 80, 0); 
                 m_scoreText[(1 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(880, 55, 0); 
-                m_scoreText[(2 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(-400, -55, 0); 
+                m_scoreText[(2 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(-380, -55, 0); 
                 m_scoreText[(2 * m_nbOfPlayers) + 1].transform.localPosition = new Vector3(400, -495, 0); 
                 m_scoreText[(2 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(400, -470, 0); 
                 break;
             case 4:
-                m_scoreText[(0 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(-880, 490, 0); 
+                m_scoreText[(0 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(-860, 490, 0); 
                 m_scoreText[(0 * m_nbOfPlayers) + 1].transform.localPosition = new Vector3(-80, 105, 0); 
                 m_scoreText[(0 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(-80, 80, 0); 
                 m_scoreText[(0 * m_nbOfPlayers) + 3].transform.localPosition = new Vector3(-80, 55, 0); 
-                m_scoreText[(1 * m_nbOfPlayers) + 1].transform.localPosition = new Vector3(80, 490, 0); 
+                m_scoreText[(1 * m_nbOfPlayers) + 1].transform.localPosition = new Vector3(100, 490, 0); 
                 m_scoreText[(1 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(880, 105, 0); 
                 m_scoreText[(1 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(880, 80, 0); 
                 m_scoreText[(1 * m_nbOfPlayers) + 3].transform.localPosition = new Vector3(880, 55, 0); 
-                m_scoreText[(2 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(-880, -55, 0); 
+                m_scoreText[(2 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(-860, -55, 0); 
                 m_scoreText[(2 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(-80, -445,  0); 
                 m_scoreText[(2 * m_nbOfPlayers) + 1].transform.localPosition = new Vector3(-80, -470, 0); 
                 m_scoreText[(2 * m_nbOfPlayers) + 3].transform.localPosition = new Vector3(-80, -495,  0);
-                m_scoreText[(3 * m_nbOfPlayers) + 3].transform.localPosition = new Vector3(80,-55, 0);
+                m_scoreText[(3 * m_nbOfPlayers) + 3].transform.localPosition = new Vector3(100,-55, 0);
                 m_scoreText[(3 * m_nbOfPlayers) + 0].transform.localPosition = new Vector3(880,-445, 0); 
                 m_scoreText[(3 * m_nbOfPlayers) + 1].transform.localPosition = new Vector3(880,-470, 0); 
                 m_scoreText[(3 * m_nbOfPlayers) + 2].transform.localPosition = new Vector3(880, -495, 0); 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7470550988525479241}
   - component: {fileID: 3787584325248801200}
   - component: {fileID: 9035186716663373531}
+  - component: {fileID: -36505176973750405}
   m_Layer: 0
   m_Name: Munitions
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3219200639243971948}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 10, y: 0, z: 120}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &7470550988525479241
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7026fe94887d9c438649b82fd9b463a, type: 2}
+  - {fileID: 2100000, guid: 96cade366a7ee3346a27de253f68fa99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,3 +95,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2441352768624591280, guid: 6053762290b59f047bd8bda2e4fee40d, type: 3}
+--- !u!114 &-36505176973750405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219200639243971948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec84714f1abe55647b7b3429be0fc40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_type: 1
+  m_healthReceived: 50
+  m_armorReceived: 50
+  m_maxSuperBulletUsage: 2
+  m_superBulletDamage: 15
+  m_boostForce: 500
+  m_rotationSpeed: 2
+  m_meshesPrefabs:
+  - {fileID: 5293733368286398071, guid: b5acca82766d0274486cd0b5aba15314, type: 3}
+  - {fileID: 666533792939845008, guid: 3cb51a210ea541b4b82453253c0416ed, type: 3}
+  - {fileID: 3219200639243971948}
+  - {fileID: 7693964573684171596, guid: 777f0a330e670e043a9f89e37fb2a872, type: 3}

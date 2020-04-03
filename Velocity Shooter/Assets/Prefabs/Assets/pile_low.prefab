@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6673540641981755743}
   - component: {fileID: 2433680357300325225}
   - component: {fileID: 8285112650974672784}
+  - component: {fileID: 7730851259462488411}
   m_Layer: 0
   m_Name: pile_low
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7693964573684171596}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -79,3 +80,27 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7730851259462488411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693964573684171596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec84714f1abe55647b7b3429be0fc40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_type: 3
+  m_healthReceived: 50
+  m_armorReceived: 50
+  m_maxSuperBulletUsage: 2
+  m_superBulletDamage: 15
+  m_boostForce: 500
+  m_rotationSpeed: 2
+  m_meshesPrefabs:
+  - {fileID: 5293733368286398071, guid: b5acca82766d0274486cd0b5aba15314, type: 3}
+  - {fileID: 666533792939845008, guid: 3cb51a210ea541b4b82453253c0416ed, type: 3}
+  - {fileID: 3219200639243971948, guid: 14a0a8acd793ca74691b52835b145800, type: 3}
+  - {fileID: 7693964573684171596}

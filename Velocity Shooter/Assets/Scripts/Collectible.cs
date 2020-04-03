@@ -24,6 +24,8 @@ public class Collectible : MonoBehaviour
     private int m_superBulletDamage = 15;
     [SerializeField]
     private int m_boostForce = 500;
+    [SerializeField]
+    private int m_rotationSpeed = 2;
 
     [SerializeField]
     private GameObject[] m_meshesPrefabs;
@@ -91,5 +93,10 @@ public class Collectible : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    private void Update()
+    {
+        transform.Rotate(0, m_rotationSpeed,0);
     }
 }

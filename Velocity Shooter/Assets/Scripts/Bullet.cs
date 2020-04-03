@@ -12,13 +12,18 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float m_damage = 40.0f;
 
-
     [HideInInspector]
     public float m_additionalDamage = 0.0f;
 
+    [SerializeField]
+    private int m_destroyDelay;
+    
+    private bool m_canMove;
+    
     private void Start()
     {
-        StartCoroutine(AutoDestroy(5.0f));
+        m_canMove = true;
+        StartCoroutine(AutoDestroy(m_destroyDelay));
         m_bulletVelocity = transform.forward * m_speed;
     }
 
@@ -31,7 +36,8 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveBullet();
+        if(m_canMove)
+            MoveBullet();
     }
 
     void MoveBullet()
@@ -47,9 +53,10 @@ public class Bullet : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(point1, (point2 - point1), out hit, (point2-point1).magnitude))
             {
+                gameObject.transform.parent = hit.transform;
                 DealDamage(hit);
                 //Play any animation/FX here
-                Destroy(gameObject);
+                m_canMove = false;
             }
 
             point1 = point2;

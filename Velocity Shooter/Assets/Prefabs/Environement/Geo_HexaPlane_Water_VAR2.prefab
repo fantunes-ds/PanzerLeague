@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3358401145994568158}
   - component: {fileID: 6034954013702249448}
   - component: {fileID: 71212997883832081}
-  - component: {fileID: 1418002561}
-  - component: {fileID: 1329829756}
-  m_Layer: 4
+  - component: {fileID: 6701683376400379364}
+  - component: {fileID: 4103112394239175072}
+  m_Layer: 0
   m_Name: Geo_HexaPlane_Water_VAR2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1418002561
+--- !u!65 &6701683376400379364
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783471445495747533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2277298, y: 0.000000019073486, z: 2.2042503}
+  m_Center: {x: -0.0038375854, y: 0, z: 0}
+--- !u!114 &4103112394239175072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,18 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3736aa426fad9234b8c6c4057e4a1e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_killzoneGravityForce: 0.01
+  m_killzoneGravityForce: 0.2
   m_timeToRespawn: 3
---- !u!65 &1329829756
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783471445495747533}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3073081, y: 0.000000019073486, z: 2.2042503}
-  m_Center: {x: -0.0019622445, y: 0, z: 0}

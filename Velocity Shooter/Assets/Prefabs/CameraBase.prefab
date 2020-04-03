@@ -243,7 +243,7 @@ MonoBehaviour:
   m_moveSpeed: 120
   m_cameraTarget: {fileID: 0}
   m_zoomTarget: {fileID: 0}
-  m_clampAngleLow: 25
+  m_clampAngleLow: 15
   m_clampAngleHigh: 70
   m_inputSensitivity: 150
   m_cameraObject: {fileID: 4738790544645043842}

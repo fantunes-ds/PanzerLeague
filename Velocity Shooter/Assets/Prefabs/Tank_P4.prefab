@@ -405,7 +405,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2164785748859121358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1357,9 +1357,9 @@ MonoBehaviour:
   m_cameraTarget: {fileID: 8869982653441684581}
   m_zoomTarget: {fileID: 2548174959518953295}
   m_tankCamera: {fileID: 0}
-  m_tankSpeed: 25
+  m_tankSpeed: 30
   m_tankRotSpeed: 20
-  m_maxSpeed: 15
+  m_maxSpeed: 7
   m_turret: {fileID: 2548174958075866319}
   m_canon: {fileID: 5308650967350789213}
   m_canonRotSpeed: 30

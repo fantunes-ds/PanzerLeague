@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         if (GetScene().name != "MainMenu" && m_spawnPoints.Count == 0)
         {
             m_uiTargetContainer = GameObject.Find("Canvas").transform;
-            for (int i = 0; i < GameObject.Find("SpawnPoints").transform.GetChildCount() - 1; ++i)
+            for (int i = 0; i < GameObject.Find("SpawnPoints").transform.childCount - 1; ++i)
             {
                 m_spawnPoints.Add(GameObject.Find("SpawnPoints").transform.GetChild(i).transform);
             }

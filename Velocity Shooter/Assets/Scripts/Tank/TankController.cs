@@ -95,11 +95,11 @@ public class TankController : MonoBehaviour
 
     void Suicide()
     {
-        if (Input.GetAxis(gameObject.name + "Suicide") > 0.9f)
+        if (Input.GetAxis(gameObject.name + "Suicide") > 0.9f && !m_isDead )
         {
-            StartCoroutine(EnableRespawnDelayed(1.0f));
             SetCanMove(false);
             SetIsDead(true);
+            StartCoroutine(EnableRespawnDelayed(1.0f));
             GameManager.m_instance.GetComponent<ScoreManager>().AddScore(-1, gameObject.name[1] - 48);
         }
     }
